@@ -37,7 +37,7 @@
   "description": "Entreprise spécialisée dans les travaux de construction tous corps d'état à Oran, Algérie. Charpente métallique, béton armé, tuyauterie, bacs de stockage, électricité industrielle.",
   "url": "https://www.mconstructiondz.com",
   "telephone": ["+213560190275", "+213779417945", "+213794686568"],
-  "email": "djawedbenkhaled31@gmail.com",
+  "email": "eurlmconstruction@gmail.com",
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "33 Rue Ben Aissa Med Gdyel",
@@ -152,9 +152,9 @@
   .hero-bg {
     position: absolute;
     inset: 0;
-    background-image: url('images/image_001.jpg');
+    background-image: url('images/image_hero_worker_banner.jpg');
     background-size: cover;
-    background-position: center top;
+    background-position: center center;
     filter: brightness(0.45);
   }
   .hero-overlay {
@@ -430,10 +430,11 @@
     border-radius: var(--radius);
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0,0,0,0.07);
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1), box-shadow 0.4s cubic-bezier(.4,0,.2,1);
   }
-  .service-card:hover { transform: translateY(-6px); box-shadow: 0 16px 40px rgba(26,58,143,0.15); }
-  .service-card-img { width: 100%; height: 200px; object-fit: cover; }
+  .service-card:hover { transform: translateY(-8px); box-shadow: 0 20px 45px rgba(26,58,143,0.18); }
+  .service-card-img { width: 100%; height: 200px; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter 0.4s; }
+  .service-card:hover .service-card-img { transform: scale(1.06); filter: brightness(0.92); }
   .service-card-body { padding: 24px; }
   .service-card-icon {
     width: 48px;
@@ -445,7 +446,9 @@
     justify-content: center;
     font-size: 1.3rem;
     margin-bottom: 14px;
+    transition: transform 0.4s cubic-bezier(.4,0,.2,1);
   }
+  .service-card:hover .service-card-icon { transform: scale(1.1) rotate(-4deg); }
   .service-card h3 {
     font-family: 'Montserrat', sans-serif;
     font-size: 1rem;
@@ -457,61 +460,6 @@
   }
   .service-card p { font-size: 0.87rem; color: var(--gray); line-height: 1.7; }
 
-  /* VIDEO GALLERY */
-  .video-gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
-    gap: 20px;
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-  .video-thumb {
-    position: relative;
-    aspect-ratio: 9 / 16;
-    border-radius: var(--radius);
-    overflow: hidden;
-    cursor: pointer;
-    background: #000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.12);
-    transition: transform 0.3s, box-shadow 0.3s;
-  }
-  .video-thumb:hover { transform: translateY(-4px); box-shadow: 0 14px 34px rgba(13,34,96,0.25); }
-  .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.4s, filter 0.3s; }
-  .video-thumb:hover img { transform: scale(1.08); filter: brightness(0.75); }
-  .video-index {
-    position: absolute; top: 10px; left: 10px;
-    background: rgba(13,34,96,0.85); color: #fff;
-    font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 700;
-    padding: 3px 9px; border-radius: 20px; letter-spacing: 0.05em; z-index: 2;
-  }
-  .video-duration {
-    position: absolute; bottom: 10px; right: 10px;
-    background: rgba(0,0,0,0.65); color: #fff;
-    font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 600;
-    padding: 2px 8px; border-radius: 6px; z-index: 2;
-  }
-  .play-badge { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; z-index: 2; pointer-events: none; }
-  .play-badge span {
-    width: 52px; height: 52px; border-radius: 50%;
-    background: rgba(13,34,96,0.78); backdrop-filter: blur(2px);
-    display: flex; align-items: center; justify-content: center;
-    color: #fff; font-size: 1.15rem; padding-left: 3px;
-    transition: background 0.3s, transform 0.3s;
-  }
-  .video-thumb:hover .play-badge span { background: var(--gold); transform: scale(1.12); }
-
-  #videoLightbox {
-    position: fixed; inset: 0; z-index: 5000;
-    background: rgba(6,12,30,0.96);
-    display: none; align-items: center; justify-content: center;
-    padding: 20px;
-  }
-  #videoLightbox.active { display: flex; }
-  #videoLightbox video {
-    max-width: 420px; width: 100%; max-height: 85vh;
-    border-radius: var(--radius); background: #000; display: block;
-    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
-  }
   .lb-close, .lb-nav {
     background: rgba(255,255,255,0.12); border: none; color: #fff;
     cursor: pointer; display: flex; align-items: center; justify-content: center;
@@ -535,12 +483,57 @@
     font-size: 0.8rem; letter-spacing: 0.05em;
   }
   @media (max-width: 600px) {
-    .video-gallery-grid { grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 12px; }
     .lb-nav { width: 40px; height: 40px; font-size: 1.3rem; }
-    #videoLightbox video { max-width: 100%; }
   }
 
-  /* PHOTO GALLERY */
+  /* PHOTO GALLERY — filtres en cartes visuelles par métier */
+  .photo-filter-bar {
+    display: flex; gap: 16px;
+    max-width: 1180px; margin: 0 auto 48px;
+    overflow-x: auto; padding: 6px 4px 22px;
+    scroll-snap-type: x proximity; -webkit-overflow-scrolling: touch;
+    scrollbar-width: thin; scrollbar-color: rgba(13,34,96,0.25) transparent;
+    justify-content: center;
+  }
+  .photo-filter-bar::-webkit-scrollbar { height: 5px; }
+  .photo-filter-bar::-webkit-scrollbar-thumb { background: rgba(13,34,96,0.2); border-radius: 10px; }
+  .photo-filter-btn {
+    position: relative; flex: 0 0 auto; scroll-snap-align: start;
+    width: 190px; height: 138px; border-radius: 16px; overflow: hidden;
+    cursor: pointer; border: 2px solid transparent; padding: 0;
+    background-size: cover; background-position: center;
+    box-shadow: 0 6px 18px rgba(13,34,96,0.14);
+    transition: transform 0.35s cubic-bezier(.4,0,.2,1), box-shadow 0.35s cubic-bezier(.4,0,.2,1), border-color 0.35s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .photo-filter-btn::before {
+    content: ''; position: absolute; inset: 0; z-index: 0;
+    background: linear-gradient(190deg, rgba(13,34,96,0.18) 0%, rgba(11,26,72,0.92) 100%);
+    transition: background 0.35s;
+  }
+  .photo-filter-btn:hover { transform: translateY(-5px); box-shadow: 0 16px 32px rgba(13,34,96,0.28); }
+  .photo-filter-btn:active { transform: translateY(-2px) scale(0.98); }
+  .photo-filter-btn.active { border-color: var(--gold); box-shadow: 0 16px 36px rgba(13,34,96,0.34); }
+  .photo-filter-btn.active::before { background: linear-gradient(190deg, rgba(13,34,96,0.05) 0%, rgba(11,26,72,0.8) 100%); }
+  .photo-filter-btn.active::after {
+    content: ''; position: absolute; left: 14px; right: 14px; bottom: 0; height: 3px;
+    background: var(--gold); border-radius: 3px 3px 0 0; z-index: 2;
+  }
+  .pf-count {
+    position: absolute; top: 10px; right: 10px; z-index: 2;
+    background: rgba(255,255,255,0.14); backdrop-filter: blur(4px);
+    border: 1px solid rgba(255,255,255,0.35); color: #fff;
+    font-family: 'Montserrat', sans-serif; font-size: 0.68rem; font-weight: 800;
+    padding: 2px 9px; border-radius: 20px; transition: background 0.3s, color 0.3s, border-color 0.3s;
+  }
+  .photo-filter-btn.active .pf-count { background: var(--gold); color: var(--blue-dark); border-color: var(--gold); }
+  .pf-body { position: relative; z-index: 2; height: 100%; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-start; padding: 14px; text-align: left; }
+  .pf-icon { font-size: 1.4rem; margin-bottom: 6px; filter: drop-shadow(0 2px 5px rgba(0,0,0,0.4)); }
+  .pf-label { font-family: 'Montserrat', sans-serif; font-size: 0.8rem; font-weight: 700; letter-spacing: 0.01em; line-height: 1.28; color: #fff; }
+  @media (max-width: 700px) {
+    .photo-filter-btn { width: 152px; height: 118px; }
+    .pf-label { font-size: 0.74rem; }
+  }
   .photo-gallery-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
@@ -551,16 +544,21 @@
   .photo-thumb { position: relative; border-radius: var(--radius); overflow: hidden;
     cursor: pointer; box-shadow: 0 4px 20px rgba(0,0,0,0.1);
     aspect-ratio: 4/3; background: var(--gray-light);
+    transition: opacity 0.4s cubic-bezier(.4,0,.2,1), transform 0.4s cubic-bezier(.4,0,.2,1),
+                box-shadow 0.35s cubic-bezier(.4,0,.2,1);
   }
-  .photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
-  .photo-thumb:hover img { transform: scale(1.08); }
+  .photo-thumb:hover { transform: translateY(-6px); box-shadow: 0 18px 40px rgba(13,34,96,0.25); }
+  .photo-thumb.photo-thumb-hidden { opacity: 0; transform: scale(0.86) translateY(14px); pointer-events: none; }
+  .photo-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.6s cubic-bezier(.4,0,.2,1), filter 0.4s; }
+  .photo-thumb:hover img { transform: scale(1.1); filter: brightness(0.88); }
   .photo-overlay {
     position: absolute; inset: 0;
-    background: linear-gradient(to top, rgba(13,34,96,0.88) 0%, transparent 55%);
+    background: linear-gradient(to top, rgba(13,34,96,0.9) 0%, rgba(13,34,96,0.15) 60%, transparent 100%);
     display: flex; flex-direction: column; justify-content: flex-end;
-    padding: 18px; opacity: 0; transition: opacity 0.3s;
+    padding: 18px; opacity: 0; transition: opacity 0.35s cubic-bezier(.4,0,.2,1), transform 0.35s cubic-bezier(.4,0,.2,1);
+    transform: translateY(6px);
   }
-  .photo-thumb:hover .photo-overlay { opacity: 1; }
+  .photo-thumb:hover .photo-overlay { opacity: 1; transform: translateY(0); }
   .photo-tag {
     font-family: 'Montserrat', sans-serif; font-size: 0.66rem; font-weight: 700;
     letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold); margin-bottom: 4px;
@@ -570,56 +568,17 @@
     position: fixed; inset: 0; z-index: 5000;
     background: rgba(6,12,30,0.96);
     display: none; align-items: center; justify-content: center;
-    padding: 20px;
+    padding: 20px; opacity: 0; transition: opacity 0.3s cubic-bezier(.4,0,.2,1);
   }
   #photoLightbox.active { display: flex; }
-  #photoLightbox img { max-width: 92vw; max-height: 82vh; border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0,0,0,0.5); display: block; }
+  #photoLightbox.active.lb-visible { opacity: 1; }
+  #photoLightbox img {
+    max-width: 92vw; max-height: 82vh; border-radius: var(--radius); box-shadow: 0 20px 60px rgba(0,0,0,0.5); display: block;
+    opacity: 0; transform: scale(0.96); transition: opacity 0.3s cubic-bezier(.4,0,.2,1), transform 0.3s cubic-bezier(.4,0,.2,1);
+  }
+  #photoLightbox img.lb-img-visible { opacity: 1; transform: scale(1); }
   #photoLightbox .lb-caption { position: absolute; bottom: 60px; left: 50%; transform: translateX(-50%); color: #fff; text-align: center; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; max-width: 80%; }
   #photoLightbox .lb-caption .photo-tag { color: var(--gold); }
-
-  /* REALIZATIONS */
-  .real-section { background: white; }
-  .real-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 28px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
-  .real-card {
-    border-radius: var(--radius);
-    overflow: hidden;
-    position: relative;
-    cursor: default;
-    box-shadow: 0 4px 24px rgba(0,0,0,0.1);
-  }
-  .real-card img { width: 100%; height: 280px; object-fit: cover; display: block; transition: transform 0.5s; }
-  .real-card:hover img { transform: scale(1.05); }
-  .real-card-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(to top, rgba(13,34,96,0.88) 0%, transparent 50%);
-    display: flex;
-    align-items: flex-end;
-    padding: 24px;
-    transition: background 0.3s;
-  }
-  .real-card-info { color: white; }
-  .real-card-tag {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .real-card h3 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 1rem;
-    font-weight: 800;
-    line-height: 1.3;
-  }
 
   /* PARTNERS */
   .partners-section { background: var(--blue-dark); padding: 70px 5%; }
@@ -972,7 +931,6 @@
     section { padding: 60px 5%; }
     .hero h1 { font-size: 2.2rem; }
     .hero-btns { flex-direction: column; align-items: center; }
-    .real-grid { grid-template-columns: 1fr; }
   }
   /* ============================================= */
   /* ========= PRELOADER PREMIUM (M Construction) === */
@@ -1235,7 +1193,6 @@ window.__plTarget = 12;
   <div class="nav-links" id="navLinks">
     <a href="#about" data-i18n="nav_about">À Propos</a>
     <a href="#services" data-i18n="nav_services">Services</a>
-    <a href="#realisations" data-i18n="nav_real">Réalisations</a>
     <a href="#partenaires" data-i18n="nav_partners">Partenaires</a>
     <a href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
@@ -1260,7 +1217,7 @@ window.__plTarget = 12;
     <h1 data-i18n="hero_h1">Construire avec <span>Rigueur</span><br>Livrer avec Confiance</h1>
     <p data-i18n="hero_p">Entreprise spécialisée dans les travaux de construction offrant des solutions fiables, conformes aux normes, avec un engagement constant en qualité, sécurité et respect des délais.</p>
     <div class="hero-btns">
-      <a href="#realisations" class="btn-primary" data-i18n="hero_btn1">Nos Réalisations</a>
+      <a href="#photos" class="btn-primary" data-i18n="hero_btn1">Nos Réalisations</a>
       <a href="#contact" class="btn-outline" data-i18n="hero_btn2">Nous Contacter</a>
     </div>
   </div>
@@ -1329,211 +1286,382 @@ window.__plTarget = 12;
   </div>
 </section>
 
-<!-- VIDEO -->
-<section id="video" style="padding:80px 5%;background:var(--gray-light);">
-  <div style="max-width:1100px;margin:0 auto;text-align:center;">
-    <span class="section-label" data-i18n="video_label">En Vidéo</span>
-    <h2 class="section-title" data-i18n="video_h2">Découvrez notre <span>savoir-faire</span></h2>
-    <div class="divider" style="margin:0 auto 40px;"></div>
-    <div class="video-gallery-grid" id="videoGallery">
-      <div class="video-thumb" onclick="openVideoLB(0)">
-        <span class="video-index">01</span>
-        <img src="images/image_005.jpg" alt="Chantier vidéo 1" loading="lazy">
-        <span class="video-duration">12s</span>
-        <div class="play-badge"><span>▶</span></div>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div style="text-align:center;max-width:1200px;margin:0 auto;">
+    <span class="section-label" data-i18n="serv_label">Nos Expertises</span>
+    <h2 class="section-title" data-i18n="serv_h2">Nos <span>Services</span></h2>
+    <div class="divider" style="margin:0 auto 20px;"></div>
+    <p class="section-intro" style="margin:0 auto 48px;" data-i18n="serv_p">Une entreprise polyvalente couvrant l'ensemble des métiers de la construction industrielle et civile.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="images/image_019.jpg" alt="Génie Civil" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🏛️</div>
+        <h3 data-i18n="s1_h">Génie Civil</h3>
+        <p data-i18n="s1_p">Fondations, massifs, dalles béton armé, ferraillage, coffrage et infrastructure industrielle.</p>
       </div>
-      <div class="video-thumb" onclick="openVideoLB(1)">
-        <span class="video-index">02</span>
-        <img src="images/image_006.jpg" alt="Chantier vidéo 2" loading="lazy">
-        <span class="video-duration">16s</span>
-        <div class="play-badge"><span>▶</span></div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_051.jpg" alt="Charpente métallique et réservoirs de stockage" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🏗️</div>
+        <h3 data-i18n="s2_h">Charpente Métallique & Réservoirs de Stockage</h3>
+        <p data-i18n="s2_p">Structures métalliques, hangars, passerelles industrielles et réservoirs de stockage (150 M³ à 650 M³).</p>
       </div>
-      <div class="video-thumb" onclick="openVideoLB(2)">
-        <span class="video-index">03</span>
-        <img src="images/image_007.jpg" alt="Chantier vidéo 3" loading="lazy">
-        <span class="video-duration">20s</span>
-        <div class="play-badge"><span>▶</span></div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_050.jpg" alt="CES" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🔩</div>
+        <h3 data-i18n="s3_h">CES</h3>
+        <p data-i18n="s3_p">Corps d'état secondaires : tuyauterie, raccordements, installations mécaniques, test et mise en service.</p>
       </div>
-      <div class="video-thumb" onclick="openVideoLB(3)">
-        <span class="video-index">04</span>
-        <img src="images/image_008.jpg" alt="Chantier vidéo 4" loading="lazy">
-        <span class="video-duration">25s</span>
-        <div class="play-badge"><span>▶</span></div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_012.jpg" alt="Aménagement" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🏢</div>
+        <h3 data-i18n="s4_h">Aménagement</h3>
+        <p data-i18n="s4_p">Réhabilitation de bureaux, vestiaires et aménagements intérieurs et extérieurs.</p>
       </div>
-      <div class="video-thumb" onclick="openVideoLB(4)">
-        <span class="video-index">05</span>
-        <img src="images/image_009.jpg" alt="Chantier vidéo 5" loading="lazy">
-        <span class="video-duration">36s</span>
-        <div class="play-badge"><span>▶</span></div>
-      </div>
-      <div class="video-thumb" onclick="openVideoLB(5)">
-        <span class="video-index">06</span>
-        <img src="images/image_010.jpg" alt="Chantier vidéo 6" loading="lazy">
-        <span class="video-duration">33s</span>
-        <div class="play-badge"><span>▶</span></div>
-      </div>
-      <div class="video-thumb" onclick="openVideoLB(6)">
-        <span class="video-index">07</span>
-        <img src="images/image_011.jpg" alt="Chantier vidéo 7" loading="lazy">
-        <span class="video-duration">77s</span>
-        <div class="play-badge"><span>▶</span></div>
-      </div>
-      <div class="video-thumb" onclick="openVideoLB(7)">
-        <span class="video-index">08</span>
-        <img src="images/image_012.jpg" alt="Chantier vidéo 8" loading="lazy">
-        <span class="video-duration">94s</span>
-        <div class="play-badge"><span>▶</span></div>
-      </div>
-      <div class="video-thumb" onclick="openVideoLB(8)">
-        <span class="video-index">09</span>
-        <img src="images/image_013.jpg" alt="Chantier vidéo 9" loading="lazy">
-        <span class="video-duration">52s</span>
-        <div class="play-badge"><span>▶</span></div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_032.jpg" alt="Travaux d'électricité et instrumentation" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">⚡</div>
+        <h3 data-i18n="s5_h">Travaux d'Électricité & Instrumentation</h3>
+        <p data-i18n="s5_p">Travaux électriques, maintenance préventive postes HTA/BT, instrumentation et mise en service.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- LIGHTBOX VIDEO -->
-<div id="videoLightbox">
-  <button class="lb-close" onclick="closeVideoLB()" aria-label="Fermer">&times;</button>
-  <button class="lb-nav lb-prev" onclick="navVideoLB(-1)" aria-label="Précédent">&#10094;</button>
-  <video id="lbVideoPlayer" controls playsinline></video>
-  <button class="lb-nav lb-next" onclick="navVideoLB(1)" aria-label="Suivant">&#10095;</button>
-  <div class="lb-counter" id="lbCounter"></div>
-</div>
-
 <!-- PHOTO GALLERY -->
 <section id="photos" style="padding:80px 5%;background:white;">
   <div style="max-width:1200px;margin:0 auto;text-align:center;">
-    <span class="section-label">En Images</span>
-    <h2 class="section-title">Nos chantiers en <span>photos</span></h2>
-    <div class="divider" style="margin:0 auto 40px;"></div>
+    <span class="section-label" data-i18n="photos_label">En Images</span>
+    <h2 class="section-title" data-i18n="photos_h2">Nos chantiers en <span>photos</span></h2>
+    <div class="divider" style="margin:0 auto 24px;"></div>
+    <p class="section-intro" style="margin:0 auto 40px;" data-i18n="photos_intro">Un aperçu classé par métier de nos interventions sur le terrain, pour les plus grands acteurs de l'industrie algérienne.</p>
+    <div class="photo-filter-bar" id="photoFilterBar">
+      <button class="photo-filter-btn" data-filter="genie-civil" style="background-image:url('images/image_019.jpg')">
+        <div class="pf-body">
+          <span class="pf-icon">🏗️</span>
+          <span class="pf-label" data-i18n="pf1">Génie Civil</span>
+        </div>
+        <span class="pf-count">8</span>
+      </button>
+      <button class="photo-filter-btn" data-filter="charpente-reservoirs" style="background-image:url('images/image_014.jpg')">
+        <div class="pf-body">
+          <span class="pf-icon">🏭</span>
+          <span class="pf-label" data-i18n="pf2">Charpente Métallique &amp; Réservoirs</span>
+        </div>
+        <span class="pf-count">15</span>
+      </button>
+      <button class="photo-filter-btn" data-filter="ces" style="background-image:url('images/image_015.jpg')">
+        <div class="pf-body">
+          <span class="pf-icon">🔩</span>
+          <span class="pf-label" data-i18n="pf3">CES</span>
+        </div>
+        <span class="pf-count">10</span>
+      </button>
+      <button class="photo-filter-btn" data-filter="amenagement" style="background-image:url('images/image_012.jpg')">
+        <div class="pf-body">
+          <span class="pf-icon">🏢</span>
+          <span class="pf-label" data-i18n="pf4">Aménagement</span>
+        </div>
+        <span class="pf-count">6</span>
+      </button>
+      <button class="photo-filter-btn" data-filter="electricite" style="background-image:url('images/image_032.jpg')">
+        <div class="pf-body">
+          <span class="pf-icon">⚡</span>
+          <span class="pf-label" data-i18n="pf5">Électricité &amp; Instrumentation</span>
+        </div>
+        <span class="pf-count">1</span>
+      </button>
+    </div>
     <div class="photo-gallery-grid" id="photoGallery">
-      <div class="photo-thumb" onclick="openPhotoLB(0)">
-        <img src="images/image_014.jpg" alt="Chargement d'équipements industriels par grue auxiliaire" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Levage & Transport</div>
-          <div class="photo-title">Chargement d'équipements industriels par grue auxiliaire</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(1)">
-        <img src="images/image_015.jpg" alt="Briefing HSE avec les équipes avant intervention – Total" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Sécurité Chantier</div>
-          <div class="photo-title">Briefing HSE avec les équipes avant intervention – Total</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(2)">
-        <img src="images/image_016.jpg" alt="Mise en place d'un groupe motopompe ABB sur site" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Installation Industrielle</div>
-          <div class="photo-title">Mise en place d'un groupe motopompe ABB sur site</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(3)">
-        <img src="images/image_017.jpg" alt="Équipe en intervention sur plateau pour assemblage métallique" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Montage Structure</div>
-          <div class="photo-title">Équipe en intervention sur plateau pour assemblage métallique</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(4)">
-        <img src="images/image_018.jpg" alt="Levage d'une structure métallique par grue mobile" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Levage Structure</div>
-          <div class="photo-title">Levage d'une structure métallique par grue mobile</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(5)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(0)">
         <img src="images/image_019.jpg" alt="Relevé de niveaux et implantation par notre équipe topographe" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Topographie</div>
-          <div class="photo-title">Relevé de niveaux et implantation par notre équipe topographe</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt0">Relevé de niveaux et implantation par notre équipe topographe</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(6)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(1)">
         <img src="images/image_020.jpg" alt="Ferraillage des poteaux en attente de coulage" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Génie Civil</div>
-          <div class="photo-title">Ferraillage des poteaux en attente de coulage</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt1">Ferraillage des poteaux en attente de coulage</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(7)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(2)">
         <img src="images/image_021.jpg" alt="Réalisation d'une dalle circulaire en béton lissé" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Finitions Béton</div>
-          <div class="photo-title">Réalisation d'une dalle circulaire en béton lissé</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt2">Réalisation d'une dalle circulaire en béton lissé</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(8)">
-        <img src="images/image_022.jpg" alt="Soudure de précision sur éléments métalliques" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Travaux de Soudure</div>
-          <div class="photo-title">Soudure de précision sur éléments métalliques</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(9)">
-        <img src="images/image_023.jpg" alt="Assemblage d'une plateforme métallique sécurisée" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Montage Plateforme</div>
-          <div class="photo-title">Assemblage d'une plateforme métallique sécurisée</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(10)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(3)">
         <img src="images/image_024.jpg" alt="Ferraillage des voiles en béton armé – immeuble R+" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Ferraillage Voiles</div>
-          <div class="photo-title">Ferraillage des voiles en béton armé – immeuble R+</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt3">Ferraillage des voiles en béton armé – immeuble R+</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(11)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(4)">
         <img src="images/image_025.jpg" alt="Ferraillage du radier avec coffrage avant coulage" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Fondations</div>
-          <div class="photo-title">Ferraillage du radier avec coffrage avant coulage</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt4">Ferraillage du radier avec coffrage avant coulage</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(12)">
-        <img src="images/image_026.jpg" alt="Intervention sécurisée en hauteur avec harnais" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Travail en Hauteur</div>
-          <div class="photo-title">Intervention sécurisée en hauteur avec harnais</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(13)">
-        <img src="images/image_027.jpg" alt="Mise en service d'un groupe motopompe sur site" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Installation Industrielle</div>
-          <div class="photo-title">Mise en service d'un groupe motopompe sur site</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(14)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(5)">
         <img src="images/image_028.jpg" alt="Ferraillage du radier en zone d'espace confiné" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Espace Confiné</div>
-          <div class="photo-title">Ferraillage du radier en zone d'espace confiné</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt5">Ferraillage du radier en zone d'espace confiné</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(15)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(6)">
         <img src="images/image_029.jpg" alt="Ferraillage des poteaux d'un immeuble en construction" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Génie Civil</div>
-          <div class="photo-title">Ferraillage des poteaux d'un immeuble en construction</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt6">Ferraillage des poteaux d'un immeuble en construction</div>
         </div>
       </div>
-      <div class="photo-thumb" onclick="openPhotoLB(16)">
-        <img src="images/image_030.jpg" alt="Levage d'une poutre métallique par grue auxiliaire" loading="lazy">
-        <div class="photo-overlay">
-          <div class="photo-tag">Levage Structure</div>
-          <div class="photo-title">Levage d'une poutre métallique par grue auxiliaire</div>
-        </div>
-      </div>
-      <div class="photo-thumb" onclick="openPhotoLB(17)">
+      <div class="photo-thumb" data-category="genie-civil" onclick="openPhotoLB(7)">
         <img src="images/image_031.jpg" alt="Préparation du radier béton armé en zone confinée" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag">Coulage Béton</div>
-          <div class="photo-title">Préparation du radier béton armé en zone confinée</div>
+          <div class="photo-tag" data-i18n="pf1">Génie Civil</div>
+          <div class="photo-title" data-i18n="pt7">Préparation du radier béton armé en zone confinée</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(8)">
+        <img src="images/image_014.jpg" alt="Chargement d'équipements industriels par grue auxiliaire" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt8">Chargement d'équipements industriels par grue auxiliaire</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(9)">
+        <img src="images/image_017.jpg" alt="Équipe en intervention sur plateau pour assemblage métallique" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt9">Équipe en intervention sur plateau pour assemblage métallique</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(10)">
+        <img src="images/image_018.jpg" alt="Levage d'une structure métallique par grue mobile" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt10">Levage d'une structure métallique par grue mobile</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(11)">
+        <img src="images/image_022.jpg" alt="Soudure de précision sur éléments métalliques" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt11">Soudure de précision sur éléments métalliques</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(12)">
+        <img src="images/image_023.jpg" alt="Assemblage d'une plateforme métallique sécurisée" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt12">Assemblage d'une plateforme métallique sécurisée</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(13)">
+        <img src="images/image_026.jpg" alt="Intervention sécurisée en hauteur avec harnais" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt13">Intervention sécurisée en hauteur avec harnais</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(14)">
+        <img src="images/image_030.jpg" alt="Levage d'une poutre métallique par grue auxiliaire" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt14">Levage d'une poutre métallique par grue auxiliaire</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(15)">
+        <img src="images/image_052.jpg" alt="Inspection d'un réservoir sous échafaudage par le superviseur HSE" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt15">Inspection d'un réservoir sous échafaudage par le superviseur HSE</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(16)">
+        <img src="images/image_051.jpg" alt="Vue d'ensemble du parc de réservoirs de stockage" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt16">Vue d'ensemble du parc de réservoirs de stockage</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(17)">
+        <img src="images/image_053.jpg" alt="Équipe en nacelle élévatrice pour travaux en hauteur sur réservoir" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt17">Équipe en nacelle élévatrice pour travaux en hauteur sur réservoir</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(18)">
+        <img src="images/image_054.jpg" alt="Levage des viroles métalliques pour la base d'un réservoir" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt18">Levage des viroles métalliques pour la base d'un réservoir</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(19)">
+        <img src="images/image_055.jpg" alt="Assemblage des tôles de la robe d'un réservoir" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt19">Assemblage des tôles de la robe d'un réservoir</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(20)">
+        <img src="images/image_056.jpg" alt="Soudure des tôles lors du levage par grue" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt20">Soudure des tôles lors du levage par grue</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(21)">
+        <img src="images/image_057.jpg" alt="Radier en béton armé prêt pour le montage du réservoir" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt21">Radier en béton armé prêt pour le montage du réservoir</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="charpente-reservoirs" onclick="openPhotoLB(22)">
+        <img src="images/image_058.jpg" alt="Levage de la robe d'un réservoir sur son radier" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf2">Charpente Métallique & Réservoirs</div>
+          <div class="photo-title" data-i18n="pt22">Levage de la robe d'un réservoir sur son radier</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(23)">
+        <img src="images/image_015.jpg" alt="Briefing HSE avec les équipes avant intervention – Total" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt23">Briefing HSE avec les équipes avant intervention – Total</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(24)">
+        <img src="images/image_016.jpg" alt="Mise en place d'un groupe motopompe ABB sur site" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt24">Mise en place d'un groupe motopompe ABB sur site</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(25)">
+        <img src="images/image_027.jpg" alt="Mise en service d'un groupe motopompe sur site" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt25">Mise en service d'un groupe motopompe sur site</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(26)">
+        <img src="images/image_064.jpg" alt="Réseau de tuyauterie industrielle raccordé en paroi" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt26">Réseau de tuyauterie industrielle raccordé en paroi</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(27)">
+        <img src="images/image_065.jpg" alt="Ligne de tuyauterie posée sur supports métalliques" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt27">Ligne de tuyauterie posée sur supports métalliques</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(28)">
+        <img src="images/image_066.jpg" alt="Raccordement de tuyauterie sur charpente métallique" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt28">Raccordement de tuyauterie sur charpente métallique</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(29)">
+        <img src="images/image_067.jpg" alt="Cheminement de tuyauterie sur structure industrielle" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt29">Cheminement de tuyauterie sur structure industrielle</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(30)">
+        <img src="images/image_068.jpg" alt="Tuyauterie industrielle avec marquage technique" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt30">Tuyauterie industrielle avec marquage technique</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(31)">
+        <img src="images/image_069.jpg" alt="Lignes de tuyauterie le long d'un réservoir de stockage" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt31">Lignes de tuyauterie le long d'un réservoir de stockage</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(32)">
+        <img src="images/image_070.jpg" alt="Tuyauterie raccordée sur passerelle industrielle" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-title" data-i18n="pt32">Tuyauterie raccordée sur passerelle industrielle</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(33)">
+        <img src="images/image_012.jpg" alt="Aménagement intérieur d'un espace de bureaux" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-title" data-i18n="pt33">Aménagement intérieur d'un espace de bureaux</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(34)">
+        <img src="images/image_059.jpg" alt="Finitions extérieures d'un module préfabriqué" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-title" data-i18n="pt34">Finitions extérieures d'un module préfabriqué</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(35)">
+        <img src="images/image_060.jpg" alt="Installation d'un escalier hélicoïdal métallique" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-title" data-i18n="pt35">Installation d'un escalier hélicoïdal métallique</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(36)">
+        <img src="images/image_061.jpg" alt="Module préfabriqué installé en extension d'un bâtiment" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-title" data-i18n="pt36">Module préfabriqué installé en extension d'un bâtiment</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(37)">
+        <img src="images/image_062.jpg" alt="Gros œuvre et maçonnerie d'un bâtiment en réhabilitation" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-title" data-i18n="pt37">Gros œuvre et maçonnerie d'un bâtiment en réhabilitation</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(38)">
+        <img src="images/image_063.jpg" alt="Aménagement intérieur d'un couloir avec cloisons vitrées" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-title" data-i18n="pt38">Aménagement intérieur d'un couloir avec cloisons vitrées</div>
+        </div>
+      </div>
+      <div class="photo-thumb" data-category="electricite" onclick="openPhotoLB(39)">
+        <img src="images/image_032.jpg" alt="Installation électrique et instrumentation industrielle" loading="lazy">
+        <div class="photo-overlay">
+          <div class="photo-tag" data-i18n="pf5">Électricité & Instrumentation</div>
+          <div class="photo-title" data-i18n="pt39">Installation électrique et instrumentation industrielle</div>
         </div>
       </div>
     </div>
@@ -1549,129 +1677,6 @@ window.__plTarget = 12;
   <button class="lb-nav lb-next" onclick="navPhotoLB(1)" aria-label="Suivant">&#10095;</button>
   <div class="lb-counter" id="lbPhotoCounter"></div>
 </div>
-
-<!-- SERVICES -->
-<section class="services-section" id="services">
-  <div style="text-align:center;max-width:1200px;margin:0 auto;">
-    <span class="section-label" data-i18n="serv_label">Nos Expertises</span>
-    <h2 class="section-title" data-i18n="serv_h2">Tous Corps d'<span>État</span></h2>
-    <div class="divider" style="margin:0 auto 20px;"></div>
-    <p class="section-intro" style="margin:0 auto 48px;" data-i18n="serv_p">Une entreprise polyvalente couvrant l'ensemble des métiers de la construction industrielle et civile.</p>
-  </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <img src="images/image_032.jpg" alt="Charpente métallique" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🏗️</div>
-        <h3 data-i18n="s1_h">Charpente Métallique</h3>
-        <p data-i18n="s1_p">Construction de structures métalliques, hangars, escaliers hélicoïdaux, plateformes et passerelles industrielles.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <img src="images/image_033.jpg" alt="Gros œuvres béton" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🏛️</div>
-        <h3 data-i18n="s2_h">Gros Œuvres en Béton</h3>
-        <p data-i18n="s2_p">Fondations, massifs, dalles béton armé, fosses de relevage, digues de rétention et infrastructure industrielle.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <img src="images/image_034.jpg" alt="Construction de Bacs" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🛢️</div>
-        <h3 data-i18n="s3_h">Construction de Bacs</h3>
-        <p data-i18n="s3_p">Conception et réalisation de réservoirs de stockage (150 M³ à 650 M³) pour huiles, additifs et hydrocarbures.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <img src="images/image_035.jpg" alt="Tuyauterie et Piping" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🔩</div>
-        <h3 data-i18n="s4_h">Tuyauterie & Piping</h3>
-        <p data-i18n="s4_p">Installation de réseaux de tuyauterie industrielle, raccordements pomperies, test et mise en service.</p>
-      </div>
-    </div>
-    <div class="service-card" style="background:var(--blue-dark);">
-      <div class="service-card-body" style="padding:40px 24px;">
-        <div class="service-card-icon" style="background:var(--gold);">⚡</div>
-        <h3 style="color:white;" data-i18n="s5_h">Électricité & Instrumentation</h3>
-        <p style="color:rgba(255,255,255,0.7);" data-i18n="s5_p">Travaux électriques, maintenance préventive postes HTA/BT, instrumentation et mise en service.</p>
-      </div>
-    </div>
-    <div class="service-card" style="background:var(--blue);">
-      <div class="service-card-body" style="padding:40px 24px;">
-        <div class="service-card-icon" style="background:var(--gold);">🏗</div>
-        <h3 style="color:white;" data-i18n="s6_h">Réhabilitation & Maintenance</h3>
-        <p style="color:rgba(255,255,255,0.7);" data-i18n="s6_p">Travaux TCE de réparation, réhabilitation de bureaux, vestiaires et aménagements intérieurs/extérieurs.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REALIZATIONS -->
-<section class="real-section" id="realisations">
-  <div style="max-width:1200px;margin:0 auto;">
-    <span class="section-label" data-i18n="real_label">Nos Chantiers</span>
-    <h2 class="section-title" data-i18n="real_h2">Récentes <span>Réalisations</span></h2>
-    <div class="divider"></div>
-    <p class="section-intro" data-i18n="real_p">Des projets d'envergure réalisés avec rigueur pour les plus grands acteurs du secteur énergétique et industriel algérien.</p>
-    <div class="real-grid">
-      <div class="real-card">
-        <img src="images/image_036.jpg" alt="TotalEnergies Bethioua">
-        <div class="real-card-overlay">
-          <div class="real-card-info">
-            <div class="real-card-tag" data-i18n="r1_tag">TotalEnergies · Bethioua</div>
-            <h3 data-i18n="r1_h">Usine de Lubrifiant Moteur – Bacs de Stockage, Piping & Électricité</h3>
-          </div>
-        </div>
-      </div>
-      <div class="real-card">
-        <img src="images/image_037.jpg" alt="Extension bacs stockage">
-        <div class="real-card-overlay">
-          <div class="real-card-info">
-            <div class="real-card-tag" data-i18n="r2_tag">TotalEnergies · Extension</div>
-            <h3 data-i18n="r2_h">Extension Bacs 650 M³, 150 M³ et 250 M³ pour Huiles de Base</h3>
-          </div>
-        </div>
-      </div>
-      <div class="real-card">
-        <img src="images/image_038.jpg" alt="Fondations GL1Z Arzew">
-        <div class="real-card-overlay">
-          <div class="real-card-info">
-            <div class="real-card-tag" data-i18n="r3_tag">Sonatrach · GL1Z Arzew</div>
-            <h3 data-i18n="r3_h">Fosses de Relevage STEP & Pompes SULZER – Complexe Liquéfaction Gaz</h3>
-          </div>
-        </div>
-      </div>
-      <div class="real-card">
-        <img src="images/image_039.jpg" alt="Auto West Es-Sénia">
-        <div class="real-card-overlay">
-          <div class="real-card-info">
-            <div class="real-card-tag" data-i18n="r4_tag">Auto West Diesel · Es-Sénia</div>
-            <h3 data-i18n="r4_h">Site de Stockage et Vente – Hangars Charpente Métallique R+2</h3>
-          </div>
-        </div>
-      </div>
-      <div class="real-card">
-        <img src="images/image_040.jpg" alt="Raffinerie Arzew">
-        <div class="real-card-overlay">
-          <div class="real-card-info">
-            <div class="real-card-tag" data-i18n="r5_tag">Raffinerie d'Arzew</div>
-            <h3 data-i18n="r5_h">Bétonnage Digues de Rétention GPL & Réhabilitation Bureaux Direction</h3>
-          </div>
-        </div>
-      </div>
-      <div class="real-card" style="background:linear-gradient(135deg,var(--blue-dark),var(--blue));display:flex;align-items:center;justify-content:center;min-height:280px;">
-        <div style="text-align:center;color:white;padding:32px;">
-          <div style="font-size:2.5rem;margin-bottom:16px;">🏟️</div>
-          <div style="font-family:Montserrat,sans-serif;font-size:0.75rem;font-weight:700;letter-spacing:0.12em;color:var(--gold);text-transform:uppercase;margin-bottom:8px;" data-i18n="r6_tag">Stade Emir Abdelkader · Oran</div>
-          <h3 style="font-family:Montserrat,sans-serif;font-size:1rem;font-weight:800;" data-i18n="r6_h">Construction Gradins & Dessalement Cap Djinet – GTP Boumerdes</h3>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- PARTNERS -->
 <section class="partners-section" id="partenaires">
   <h2 class="partners-title" data-i18n="part_h">Nos Partenaires</h2>
@@ -1771,7 +1776,7 @@ window.__plTarget = 12;
           <div class="contact-icon">✉️</div>
           <div>
             <h4 data-i18n="email_h">Emails</h4>
-            <a href="mailto:djawedbenkhaled31@gmail.com">djawedbenkhaled31@gmail.com</a>
+            <a href="mailto:eurlmconstruction@gmail.com">eurlmconstruction@gmail.com</a>
           </div>
         </div>
       </div>
@@ -1832,7 +1837,6 @@ window.__plTarget = 12;
       <h4 data-i18n="footer_nav">Navigation</h4>
       <a href="#about" data-i18n="nav_about">À Propos</a>
       <a href="#services" data-i18n="nav_services">Services</a>
-      <a href="#realisations" data-i18n="nav_real">Réalisations</a>
       <a href="#partenaires" data-i18n="nav_partners">Partenaires</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </div>
@@ -1841,7 +1845,7 @@ window.__plTarget = 12;
       <p>0560 19 02 75</p>
       <p>0779 41 79 45</p>
       <p>0794 68 65 68</p>
-      <a href="mailto:djawedbenkhaled31@gmail.com" style="word-break:break-all;">djawedbenkhaled31@gmail.com</a>
+      <a href="mailto:eurlmconstruction@gmail.com" style="word-break:break-all;">eurlmconstruction@gmail.com</a>
     </div>
   </div>
   <div class="footer-bottom">
@@ -1853,7 +1857,7 @@ window.__plTarget = 12;
 // TRANSLATIONS
 const translations = {
   fr: {
-    nav_about:"À Propos", nav_services:"Services", nav_real:"Réalisations", nav_partners:"Partenaires", nav_contact:"Contact",
+    nav_about:"À Propos", nav_services:"Services", nav_partners:"Partenaires", nav_contact:"Contact",
     hero_tag:"Depuis 2008 · Qualification IV",
     hero_h1:"Construire avec <span>Rigueur</span><br>Livrer avec Confiance",
     hero_p:"Entreprise spécialisée dans les travaux de construction offrant des solutions fiables, conformes aux normes, avec un engagement constant en qualité, sécurité et respect des délais.",
@@ -1864,26 +1868,20 @@ const translations = {
     about_badge:"EURL M Construction · Oran, Algérie",
     about_p1:"Notre société ETB TCE MESSIKH MARC SAMI, créée en 2008, a réalisé de nombreux projets de construction et a atteint la qualification IV. L'évolution constante de l'entreprise nous a conduits à devenir <strong>EURL M Construction</strong> en 2023.",
     about_p2:"Depuis 2023, M Construction a tracé son chemin en réalisant plusieurs projets significatifs et en relevant de nouveaux défis, notamment dans le cadre de grands projets où la polyvalence est essentielle.",
-    video_label:"En Vidéo", video_h2:"Découvrez notre <span>savoir-faire</span>",
     val1_h:"Satisfaction Partenaires", val1_p:"Qualité des prestations, maîtrise des coûts et respect des délais d'exécution.",
     val2_h:"Excellence des Équipes", val2_p:"Maintien et amélioration continue des compétences, gages de performance et fiabilité.",
     val3_h:"Agilité & Réactivité", val3_p:"Forte capacité d'adaptation pour répondre efficacement aux besoins de chaque projet.",
-    serv_label:"Nos Expertises", serv_h2:"Tous Corps d'<span>État</span>",
+    serv_label:"Nos Expertises", serv_h2:"Nos <span>Services</span>",
     serv_p:"Une entreprise polyvalente couvrant l'ensemble des métiers de la construction industrielle et civile.",
-    s1_h:"Charpente Métallique", s1_p:"Construction de structures métalliques, hangars, escaliers hélicoïdaux, plateformes et passerelles industrielles.",
-    s2_h:"Gros Œuvres en Béton", s2_p:"Fondations, massifs, dalles béton armé, fosses de relevage, digues de rétention et infrastructure industrielle.",
-    s3_h:"Construction de Bacs", s3_p:"Conception et réalisation de réservoirs de stockage (150 M³ à 650 M³) pour huiles, additifs et hydrocarbures.",
-    s4_h:"Tuyauterie & Piping", s4_p:"Installation de réseaux de tuyauterie industrielle, raccordements pomperies, test et mise en service.",
-    s5_h:"Électricité & Instrumentation", s5_p:"Travaux électriques, maintenance préventive postes HTA/BT, instrumentation et mise en service.",
-    s6_h:"Réhabilitation & Maintenance", s6_p:"Travaux TCE de réparation, réhabilitation de bureaux, vestiaires et aménagements intérieurs/extérieurs.",
-    real_label:"Nos Chantiers", real_h2:"Récentes <span>Réalisations</span>",
-    real_p:"Des projets d'envergure réalisés avec rigueur pour les plus grands acteurs du secteur énergétique et industriel algérien.",
-    r1_tag:"TotalEnergies · Bethioua", r1_h:"Usine de Lubrifiant Moteur – Bacs de Stockage, Piping & Électricité",
-    r2_tag:"TotalEnergies · Extension", r2_h:"Extension Bacs 650 M³, 150 M³ et 250 M³ pour Huiles de Base",
-    r3_tag:"Sonatrach · GL1Z Arzew", r3_h:"Fosses de Relevage STEP & Pompes SULZER – Complexe Liquéfaction Gaz",
-    r4_tag:"Auto West Diesel · Es-Sénia", r4_h:"Site de Stockage et Vente – Hangars Charpente Métallique R+2",
-    r5_tag:"Raffinerie d'Arzew", r5_h:"Bétonnage Digues de Rétention GPL & Réhabilitation Bureaux Direction",
-    r6_tag:"Stade Emir Abdelkader · Oran", r6_h:"Construction Gradins & Dessalement Cap Djinet – GTP Boumerdes",
+    s1_h:"Génie Civil", s1_p:"Fondations, massifs, dalles béton armé, ferraillage, coffrage et infrastructure industrielle.",
+    s2_h:"Charpente Métallique & Réservoirs de Stockage", s2_p:"Structures métalliques, hangars, passerelles industrielles et réservoirs de stockage (150 M³ à 650 M³).",
+    s3_h:"CES", s3_p:"Corps d'état secondaires : tuyauterie, raccordements, installations mécaniques, test et mise en service.",
+    s4_h:"Aménagement", s4_p:"Réhabilitation de bureaux, vestiaires et aménagements intérieurs et extérieurs.",
+    s5_h:"Travaux d'Électricité & Instrumentation", s5_p:"Travaux électriques, maintenance préventive postes HTA/BT, instrumentation et mise en service.",
+    photos_label:"En Images", photos_h2:"Nos chantiers en <span>photos</span>",
+    photos_intro:"Un aperçu classé par métier de nos interventions sur le terrain, pour les plus grands acteurs de l'industrie algérienne.",
+    pf1:"Génie Civil", pf2:"Charpente Métallique & Réservoirs", pf3:"CES", pf4:"Aménagement", pf5:"Électricité & Instrumentation",
+    pt0:"Relevé de niveaux et implantation par notre équipe topographe", pt1:"Ferraillage des poteaux en attente de coulage", pt2:"Réalisation d'une dalle circulaire en béton lissé", pt3:"Ferraillage des voiles en béton armé – immeuble R+", pt4:"Ferraillage du radier avec coffrage avant coulage", pt5:"Ferraillage du radier en zone d'espace confiné", pt6:"Ferraillage des poteaux d'un immeuble en construction", pt7:"Préparation du radier béton armé en zone confinée", pt8:"Chargement d'équipements industriels par grue auxiliaire", pt9:"Équipe en intervention sur plateau pour assemblage métallique", pt10:"Levage d'une structure métallique par grue mobile", pt11:"Soudure de précision sur éléments métalliques", pt12:"Assemblage d'une plateforme métallique sécurisée", pt13:"Intervention sécurisée en hauteur avec harnais", pt14:"Levage d'une poutre métallique par grue auxiliaire", pt15:"Inspection d'un réservoir sous échafaudage par le superviseur HSE", pt16:"Vue d'ensemble du parc de réservoirs de stockage", pt17:"Équipe en nacelle élévatrice pour travaux en hauteur sur réservoir", pt18:"Levage des viroles métalliques pour la base d'un réservoir", pt19:"Assemblage des tôles de la robe d'un réservoir", pt20:"Soudure des tôles lors du levage par grue", pt21:"Radier en béton armé prêt pour le montage du réservoir", pt22:"Levage de la robe d'un réservoir sur son radier", pt23:"Briefing HSE avec les équipes avant intervention – Total", pt24:"Mise en place d'un groupe motopompe ABB sur site", pt25:"Mise en service d'un groupe motopompe sur site", pt26:"Réseau de tuyauterie industrielle raccordé en paroi", pt27:"Ligne de tuyauterie posée sur supports métalliques", pt28:"Raccordement de tuyauterie sur charpente métallique", pt29:"Cheminement de tuyauterie sur structure industrielle", pt30:"Tuyauterie industrielle avec marquage technique", pt31:"Lignes de tuyauterie le long d'un réservoir de stockage", pt32:"Tuyauterie raccordée sur passerelle industrielle", pt33:"Aménagement intérieur d'un espace de bureaux", pt34:"Finitions extérieures d'un module préfabriqué", pt35:"Installation d'un escalier hélicoïdal métallique", pt36:"Module préfabriqué installé en extension d'un bâtiment", pt37:"Gros œuvre et maçonnerie d'un bâtiment en réhabilitation", pt38:"Aménagement intérieur d'un couloir avec cloisons vitrées", pt39:"Installation électrique et instrumentation industrielle",
     part_h:"Nos Partenaires", part_p:"Ils nous font confiance pour leurs projets les plus exigeants",
     cont_label:"Travaillons Ensemble", cont_h:"Nous <span>Contacter</span>", cont_info_h:"Informations de Contact",
     addr_h:"Adresses", addr1:"<strong>Siège :</strong> 33 Rue Ben Aissa Med, Gdyel, Oran",
@@ -1899,7 +1897,7 @@ const translations = {
     footer_copy:"© 2025 EURL M Construction – Tous droits réservés · Oran, Algérie · <em>Construire avec rigueur, Livrer avec confiance</em>"
   },
   en: {
-    nav_about:"About", nav_services:"Services", nav_real:"Projects", nav_partners:"Partners", nav_contact:"Contact",
+    nav_about:"About", nav_services:"Services", nav_partners:"Partners", nav_contact:"Contact",
     hero_tag:"Since 2008 · Level IV Qualification",
     hero_h1:"Building with <span>Precision</span><br>Delivering with Confidence",
     hero_p:"A construction company offering reliable, standards-compliant solutions with a constant commitment to quality, safety, and deadlines.",
@@ -1910,26 +1908,20 @@ const translations = {
     about_badge:"EURL M Construction · Oran, Algeria",
     about_p1:"Our company ETB TCE MESSIKH MARC SAMI, founded in 2008, has completed numerous construction projects and achieved Level IV qualification. Our constant growth led us to become <strong>EURL M Construction</strong> in 2023.",
     about_p2:"Since 2023, M Construction has forged its path by completing several significant projects and taking on new challenges, particularly in large-scale projects requiring versatility.",
-    video_label:"On Video", video_h2:"Discover our <span>expertise</span>",
     val1_h:"Partner Satisfaction", val1_p:"Quality of services, cost control and compliance with execution deadlines.",
     val2_h:"Team Excellence", val2_p:"Continuous maintenance and improvement of skills, guaranteeing performance and reliability.",
     val3_h:"Agility & Responsiveness", val3_p:"Strong adaptability to efficiently respond to the needs and challenges of each project.",
-    serv_label:"Our Expertise", serv_h2:"All Trades<span> Construction</span>",
+    serv_label:"Our Expertise", serv_h2:"Our <span>Services</span>",
     serv_p:"A versatile company covering all areas of industrial and civil construction.",
-    s1_h:"Steel Structures", s1_p:"Construction of metal structures, warehouses, helical staircases, platforms and industrial walkways.",
-    s2_h:"Concrete Works", s2_p:"Foundations, concrete slabs, lifting pits, retention dikes and industrial infrastructure.",
-    s3_h:"Tank Construction", s3_p:"Design and construction of storage tanks (150 m³ to 650 m³) for oils, additives and hydrocarbons.",
-    s4_h:"Piping & Process", s4_p:"Industrial piping networks, pump room connections, testing and commissioning.",
-    s5_h:"Electrical & Instrumentation", s5_p:"Electrical works, preventive maintenance of HTA/LV substations, instrumentation and commissioning.",
-    s6_h:"Rehabilitation & Maintenance", s6_p:"TCE repair works, office rehabilitation, changing rooms and interior/exterior fittings.",
-    real_label:"Our Sites", real_h2:"Recent <span>Projects</span>",
-    real_p:"Major projects completed with rigor for the largest players in Algeria's energy and industrial sector.",
-    r1_tag:"TotalEnergies · Bethioua", r1_h:"Motor Lubricant Plant – Storage Tanks, Piping & Electrical",
-    r2_tag:"TotalEnergies · Extension", r2_h:"Storage Tank Extension 650 m³, 150 m³ and 250 m³ for Base Oils",
-    r3_tag:"Sonatrach · GL1Z Arzew", r3_h:"STEP Lifting Pits & SULZER Pumps – Natural Gas Liquefaction Complex",
-    r4_tag:"Auto West Diesel · Es-Sénia", r4_h:"Storage & Sales Site – Metal Frame Warehouses R+2",
-    r5_tag:"Arzew Refinery", r5_h:"GPL Retention Dike Concreting & Management Office Rehabilitation",
-    r6_tag:"Emir Abdelkader Stadium · Oran", r6_h:"Stands Construction & Desalination Plant – Cap Djinet GTP Boumerdes",
+    s1_h:"Civil Engineering", s1_p:"Foundations, concrete slabs, reinforcement, formwork and industrial infrastructure.",
+    s2_h:"Steel Structures & Storage Tanks", s2_p:"Metal structures, warehouses, industrial walkways and storage tanks (150 m³ to 650 m³).",
+    s3_h:"CES", s3_p:"Secondary trades: piping, connections, mechanical installations, testing and commissioning.",
+    s4_h:"Fit-Out", s4_p:"Office rehabilitation, changing rooms and interior/exterior fittings.",
+    s5_h:"Electrical & Instrumentation Works", s5_p:"Electrical works, preventive maintenance of HTA/LV substations, instrumentation and commissioning.",
+    photos_label:"In Pictures", photos_h2:"Our projects in <span>pictures</span>",
+    photos_intro:"A trade-by-trade overview of our fieldwork for Algeria's leading industrial players.",
+    pf1:"Civil Engineering", pf2:"Steel Structures & Tanks", pf3:"CES", pf4:"Fit-Out", pf5:"Electrical & Instrumentation",
+    pt0:"Level survey and site layout by our surveying team", pt1:"Rebar assembly for columns awaiting concrete pour", pt2:"Construction of a circular smoothed concrete slab", pt3:"Reinforced concrete wall rebar – multi-storey building", pt4:"Raft foundation rebar with formwork before pouring", pt5:"Raft foundation rebar in a confined area", pt6:"Column rebar for a building under construction", pt7:"Preparation of reinforced concrete raft foundation in a confined area", pt8:"Loading industrial equipment with an auxiliary crane", pt9:"Team working on site for steel structure assembly", pt10:"Lifting a steel structure with a mobile crane", pt11:"Precision welding on steel components", pt12:"Assembly of a secured steel platform", pt13:"Secured work at height with a safety harness", pt14:"Lifting a steel beam with an auxiliary crane", pt15:"Tank inspection under scaffolding by the HSE supervisor", pt16:"Overview of the storage tank farm", pt17:"Team on an aerial platform for tank work at height", pt18:"Lifting steel shell plates for a tank base", pt19:"Assembly of a tank's shell plates", pt20:"Welding shell plates during crane lifting", pt21:"Reinforced concrete raft ready for tank erection", pt22:"Lifting a tank shell onto its raft foundation", pt23:"HSE briefing with teams before intervention – Total", pt24:"Installation of an ABB pump unit on site", pt25:"Commissioning of a pump unit on site", pt26:"Industrial piping network connected to a wall", pt27:"Piping line laid on steel supports", pt28:"Piping connection on a steel structure", pt29:"Piping routing on an industrial structure", pt30:"Industrial piping with technical markings", pt31:"Piping lines along a storage tank", pt32:"Piping connected on an industrial walkway", pt33:"Interior fit-out of an office space", pt34:"Exterior finishing of a prefabricated module", pt35:"Installation of a metal spiral staircase", pt36:"Prefabricated module installed as a building extension", pt37:"Structural work and masonry on a building under renovation", pt38:"Interior fit-out of a corridor with glazed partitions", pt39:"Electrical installation and industrial instrumentation",
     part_h:"Our Partners", part_p:"They trust us with their most demanding projects",
     cont_label:"Let's Work Together", cont_h:"<span>Contact</span> Us", cont_info_h:"Contact Information",
     addr_h:"Addresses", addr1:"<strong>HQ:</strong> 33 Rue Ben Aissa Med, Gdyel, Oran",
@@ -1945,7 +1937,7 @@ const translations = {
     footer_copy:"© 2025 EURL M Construction – All rights reserved · Oran, Algeria · <em>Building with Precision, Delivering with Confidence</em>"
   },
   ar: {
-    nav_about:"من نحن", nav_services:"خدماتنا", nav_real:"إنجازاتنا", nav_partners:"شركاؤنا", nav_contact:"اتصل بنا",
+    nav_about:"من نحن", nav_services:"خدماتنا", nav_partners:"شركاؤنا", nav_contact:"اتصل بنا",
     hero_tag:"منذ 2008 · تأهيل المستوى الرابع",
     hero_h1:"نبني بـ<span>صرامة</span><br>ونسلّم بثقة",
     hero_p:"شركة متخصصة في أعمال البناء تقدم حلولاً موثوقة ومطابقة للمعايير مع التزام دائم بالجودة والسلامة واحترام الآجال.",
@@ -1956,26 +1948,20 @@ const translations = {
     about_badge:"EURL M Construction · وهران، الجزائر",
     about_p1:"شركتنا ETB TCE MESSIKH MARC SAMI، المؤسسة عام 2008، أنجزت العديد من مشاريع البناء وبلغت التأهيل من المستوى الرابع. وقد أدى تطورنا المستمر إلى التحول إلى <strong>EURL M Construction</strong> في 2023.",
     about_p2:"منذ تأسيسها عام 2023، شقت M Construction طريقها بإنجاز مشاريع هامة ومواجهة تحديات جديدة، لا سيما في إطار المشاريع الكبرى التي تستلزم التعددية.",
-    video_label:"بالفيديو", video_h2:"اكتشف <span>خبرتنا</span>",
     val1_h:"رضا الشركاء", val1_p:"جودة الخدمات والتحكم في التكاليف واحترام آجال التنفيذ.",
     val2_h:"تميز الفرق", val2_p:"الحفاظ على كفاءات الفرق وتطويرها المستمر ضمانًا للأداء والموثوقية.",
     val3_h:"المرونة والاستجابة", val3_p:"قدرة عالية على التكيف للاستجابة بفعالية لاحتياجات كل مشروع.",
-    serv_label:"خبراتنا", serv_h2:"جميع <span>تخصصات البناء</span>",
+    serv_label:"خبراتنا", serv_h2:"<span>خدماتنا</span>",
     serv_p:"شركة متعددة التخصصات تغطي جميع مجالات البناء الصناعي والمدني.",
-    s1_h:"الهياكل المعدنية", s1_p:"بناء الهياكل المعدنية والمستودعات والسلالم الحلزونية والمنصات والممرات الصناعية.",
-    s2_h:"أعمال الخرسانة", s2_p:"الأساسات والبلاطات الخرسانية المسلحة وحفر الرفع وسدود الاحتجاز والبنية التحتية الصناعية.",
-    s3_h:"بناء الخزانات", s3_p:"تصميم وإنجاز خزانات التخزين (150 م³ إلى 650 م³) للزيوت والمواد المضافة والمحروقات.",
-    s4_h:"الأنابيب والتوصيلات", s4_p:"تركيب شبكات الأنابيب الصناعية وتوصيل غرف المضخات والاختبار والتشغيل.",
-    s5_h:"الكهرباء والأدوات", s5_p:"الأعمال الكهربائية والصيانة الوقائية لمحطات الجهد العالي/المنخفض والأدوات والتشغيل.",
-    s6_h:"إعادة التأهيل والصيانة", s6_p:"أعمال الإصلاح وإعادة تأهيل المكاتب وغرف تبديل الملابس والتهيئة الداخلية والخارجية.",
-    real_label:"مواقع أعمالنا", real_h2:"أحدث <span>الإنجازات</span>",
-    real_p:"مشاريع كبرى أُنجزت بصرامة لكبار الفاعلين في القطاع الطاقوي والصناعي الجزائري.",
-    r1_tag:"TotalEnergies · بثيوة", r1_h:"مصنع زيت المحرك – خزانات التخزين والأنابيب والكهرباء",
-    r2_tag:"TotalEnergies · التوسعة", r2_h:"توسعة خزانات 650 م³ و150 م³ و250 م³ للزيوت الأساسية",
-    r3_tag:"سوناطراك · GL1Z أرزيو", r3_h:"حفر رفع STEP ومضخات SULZER – مجمع تسييل الغاز الطبيعي",
-    r4_tag:"Auto West Diesel · السانية", r4_h:"موقع التخزين والبيع – مستودعات ذات هيكل معدني R+2",
-    r5_tag:"مصفاة أرزيو", r5_h:"صب خرسانة سدود احتجاز غاز البترول المسال وإعادة تأهيل مكاتب الإدارة",
-    r6_tag:"ملعب الأمير عبد القادر · وهران", r6_h:"بناء المدرجات ومحطة تحلية المياه كاب جيني – GTP بومرداس",
+    s1_h:"الهندسة المدنية", s1_p:"الأساسات والبلاطات الخرسانية المسلحة والتسليح والقوالب والبنية التحتية الصناعية.",
+    s2_h:"الهياكل المعدنية وخزانات التخزين", s2_p:"الهياكل المعدنية والمستودعات والممرات الصناعية وخزانات التخزين (150 م³ إلى 650 م³).",
+    s3_h:"CES", s3_p:"الأعمال الثانوية: الأنابيب والتوصيلات والتركيبات الميكانيكية والاختبار والتشغيل.",
+    s4_h:"التهيئة", s4_p:"إعادة تأهيل المكاتب وغرف تبديل الملابس والتهيئة الداخلية والخارجية.",
+    s5_h:"أعمال الكهرباء والأدوات", s5_p:"الأعمال الكهربائية والصيانة الوقائية لمحطات الجهد العالي/المنخفض والأدوات والتشغيل.",
+    photos_label:"بالصور", photos_h2:"مشاريعنا <span>بالصور</span>",
+    photos_intro:"لمحة مصنفة حسب التخصص عن تدخلاتنا الميدانية لفائدة أكبر الفاعلين في الصناعة الجزائرية.",
+    pf1:"الهندسة المدنية", pf2:"الهياكل المعدنية والخزانات", pf3:"CES", pf4:"التهيئة", pf5:"الكهرباء والأدوات",
+    pt0:"مسح المستويات وتحديد المواقع من طرف فريق المساحة لدينا", pt1:"تسليح الأعمدة في انتظار الصب", pt2:"إنجاز بلاطة دائرية من الخرسانة الملساء", pt3:"تسليح الجدران من الخرسانة المسلحة – عمارة متعددة الطوابق", pt4:"تسليح الرادييه مع القالب قبل الصب", pt5:"تسليح الرادييه في منطقة ضيقة", pt6:"تسليح أعمدة عمارة قيد الإنجاز", pt7:"تحضير رادييه من الخرسانة المسلحة في منطقة ضيقة", pt8:"تحميل معدات صناعية بواسطة رافعة مساعدة", pt9:"فريق يتدخل في الموقع لتجميع الهيكل المعدني", pt10:"رفع هيكل معدني بواسطة رافعة متنقلة", pt11:"لحام دقيق على عناصر معدنية", pt12:"تجميع منصة معدنية مؤمّنة", pt13:"تدخل آمن في العلو بواسطة حزام أمان", pt14:"رفع عارضة معدنية بواسطة رافعة مساعدة", pt15:"تفتيش خزان تحت السقالة من طرف مشرف السلامة", pt16:"نظرة عامة على حقل خزانات التخزين", pt17:"فريق على منصة رفع للعمل في العلو على خزان", pt18:"رفع الألواح المعدنية لقاعدة خزان", pt19:"تجميع ألواح جسم الخزان", pt20:"لحام الألواح أثناء الرفع بالرافعة", pt21:"رادييه من الخرسانة المسلحة جاهز لتركيب الخزان", pt22:"رفع جسم الخزان فوق رادييه", pt23:"إحاطة سلامة مع الفرق قبل التدخل – توتال", pt24:"تركيب مجموعة مضخة ABB في الموقع", pt25:"تشغيل مجموعة مضخة في الموقع", pt26:"شبكة أنابيب صناعية موصولة على الجدار", pt27:"خط أنابيب موضوع على دعامات معدنية", pt28:"توصيل الأنابيب على هيكل معدني", pt29:"مسار أنابيب على هيكل صناعي", pt30:"أنابيب صناعية مع علامات تقنية", pt31:"خطوط أنابيب على طول خزان تخزين", pt32:"أنابيب موصولة على ممر صناعي", pt33:"تهيئة داخلية لمساحة مكاتب", pt34:"تشطيبات خارجية لوحدة مسبقة الصنع", pt35:"تركيب سلم حلزوني معدني", pt36:"وحدة مسبقة الصنع مركبة كامتداد لمبنى", pt37:"أعمال البناء والبناء بالحجارة لمبنى قيد إعادة التأهيل", pt38:"تهيئة داخلية لممر بحواجز زجاجية", pt39:"تركيب كهربائي وأدوات صناعية",
     part_h:"شركاؤنا", part_p:"يثقون بنا في أكثر مشاريعهم تطلباً",
     cont_label:"لنعمل معاً", cont_h:"<span>اتصل</span> بنا", cont_info_h:"معلومات التواصل",
     addr_h:"العناوين", addr1:"<strong>المقر:</strong> 33 شارع بن عيسى محمد، قديل، وهران",
@@ -2029,7 +2015,7 @@ async function submitForm() {
   btn.disabled = true;
 
   try {
-    const response = await fetch('https://formspree.io/f/xdarllwk', {
+    const response = await fetch('https://formspree.io/f/mwlkovvv', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
       body: JSON.stringify({
@@ -2081,62 +2067,50 @@ const observer = new IntersectionObserver((entries) => {
   });
 }, { threshold: 0.1 });
 
-document.querySelectorAll('.service-card, .real-card, .value-item, .contact-item, .video-thumb, .photo-thumb').forEach(el => {
+document.querySelectorAll('.service-card, .value-item, .contact-item, .photo-thumb').forEach(el => {
   el.style.opacity = '0';
   el.style.transform = 'translateY(20px)';
   el.style.transition = 'opacity 0.5s, transform 0.5s';
   observer.observe(el);
 });
 
-/* ===== GALERIE VIDÉOS (lightbox) ===== */
-const videoSources = [
-  'videos/video_001.mp4',
-  'videos/video_002.mp4',
-  'videos/video_003.mp4',
-  'videos/video_004.mp4',
-  'videos/video_005.mp4',
-  'videos/video_006.mp4',
-  'videos/video_007.mp4',
-  'videos/video_008.mp4',
-  'videos/video_009.mp4'
-];
-let currentVideoIndex = 0;
-const videoLB = document.getElementById('videoLightbox');
-const lbPlayer = document.getElementById('lbVideoPlayer');
-const lbCounter = document.getElementById('lbCounter');
+/* ===== FILTRES GALERIE PHOTOS (avec animation en cascade) ===== */
+document.querySelectorAll('.photo-filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.classList.contains('active')) return;
+    document.querySelectorAll('.photo-filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    const filter = btn.dataset.filter;
+    const allThumbs = document.querySelectorAll('#photoGallery .photo-thumb');
 
-function openVideoLB(index) {
-  currentVideoIndex = index;
-  loadVideoLB();
-  videoLB.classList.add('active');
-  document.body.style.overflow = 'hidden';
-}
-function loadVideoLB() {
-  lbPlayer.src = videoSources[currentVideoIndex];
-  lbPlayer.load();
-  lbPlayer.play().catch(()=>{});
-  lbCounter.textContent = (currentVideoIndex + 1) + ' / ' + videoSources.length;
-}
-function closeVideoLB() {
-  videoLB.classList.remove('active');
-  lbPlayer.pause();
-  lbPlayer.removeAttribute('src');
-  lbPlayer.load();
-  document.body.style.overflow = '';
-}
-function navVideoLB(dir) {
-  currentVideoIndex = (currentVideoIndex + dir + videoSources.length) % videoSources.length;
-  loadVideoLB();
-}
-videoLB.addEventListener('click', (e) => { if (e.target === videoLB) closeVideoLB(); });
-document.addEventListener('keydown', (e) => {
-  if (!videoLB.classList.contains('active')) return;
-  if (e.key === 'Escape') closeVideoLB();
-  if (e.key === 'ArrowRight') navVideoLB(1);
-  if (e.key === 'ArrowLeft') navVideoLB(-1);
+    // Étape 1 : masquer en fondu ce qui ne correspond plus
+    allThumbs.forEach(thumb => {
+      const match = filter === 'all' || thumb.dataset.category === filter;
+      if (!match) {
+        thumb.style.transitionDelay = '0ms';
+        thumb.classList.add('photo-thumb-hidden');
+      }
+    });
+
+    // Étape 2 : une fois le fondu de sortie terminé, réorganiser puis faire apparaître en cascade
+    setTimeout(() => {
+      let visibleIndex = 0;
+      allThumbs.forEach(thumb => {
+        const match = filter === 'all' || thumb.dataset.category === filter;
+        if (match) {
+          thumb.style.display = '';
+          thumb.style.transitionDelay = (visibleIndex * 45) + 'ms';
+          requestAnimationFrame(() => thumb.classList.remove('photo-thumb-hidden'));
+          visibleIndex++;
+        } else {
+          thumb.style.display = 'none';
+        }
+      });
+    }, 320);
+  });
 });
 
-/* ===== GALERIE PHOTOS (lightbox) ===== */
+/* ===== GALERIE PHOTOS (lightbox avec transitions fondu/zoom) ===== */
 const photoThumbs = document.querySelectorAll('#photoGallery .photo-thumb');
 let currentPhotoIndex = 0;
 const photoLB = document.getElementById('photoLightbox');
@@ -2146,27 +2120,39 @@ const lbPhotoCounter = document.getElementById('lbPhotoCounter');
 
 function openPhotoLB(index) {
   currentPhotoIndex = index;
-  loadPhotoLB();
+  loadPhotoLB(false);
   photoLB.classList.add('active');
   document.body.style.overflow = 'hidden';
+  requestAnimationFrame(() => requestAnimationFrame(() => photoLB.classList.add('lb-visible')));
 }
-function loadPhotoLB() {
+function loadPhotoLB(animateSwap) {
   const thumb = photoThumbs[currentPhotoIndex];
   const img = thumb.querySelector('img');
   const tag = thumb.querySelector('.photo-tag');
   const title = thumb.querySelector('.photo-title');
-  lbPhotoImg.src = img.src;
-  lbPhotoImg.alt = img.alt;
-  lbPhotoCaption.innerHTML = (tag ? '<div class="photo-tag">'+tag.textContent+'</div>' : '') + (title ? title.textContent : '');
-  lbPhotoCounter.textContent = (currentPhotoIndex + 1) + ' / ' + photoThumbs.length;
+  const setContent = () => {
+    lbPhotoImg.src = img.src;
+    lbPhotoImg.alt = img.alt;
+    lbPhotoCaption.innerHTML = (tag ? '<div class="photo-tag">'+tag.textContent+'</div>' : '') + (title ? title.textContent : '');
+    lbPhotoCounter.textContent = (currentPhotoIndex + 1) + ' / ' + photoThumbs.length;
+    requestAnimationFrame(() => lbPhotoImg.classList.add('lb-img-visible'));
+  };
+  if (animateSwap) {
+    lbPhotoImg.classList.remove('lb-img-visible');
+    setTimeout(setContent, 180);
+  } else {
+    setContent();
+  }
 }
 function closePhotoLB() {
-  photoLB.classList.remove('active');
+  photoLB.classList.remove('lb-visible');
+  lbPhotoImg.classList.remove('lb-img-visible');
   document.body.style.overflow = '';
+  setTimeout(() => photoLB.classList.remove('active'), 280);
 }
 function navPhotoLB(dir) {
   currentPhotoIndex = (currentPhotoIndex + dir + photoThumbs.length) % photoThumbs.length;
-  loadPhotoLB();
+  loadPhotoLB(true);
 }
 photoLB.addEventListener('click', (e) => { if (e.target === photoLB) closePhotoLB(); });
 document.addEventListener('keydown', (e) => {
