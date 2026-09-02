@@ -62,7 +62,8 @@
 }
 </script>
 
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Montserrat:wght@300;400;600;700;900&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   
@@ -397,16 +398,20 @@
   }
   .value-item:hover { border-color: var(--gold); transform: translateX(4px); }
   .value-icon {
-    width: 40px;
-    height: 40px;
-    border-radius: 8px;
-    background: var(--blue-dark);
+    width: 52px;
+    height: 52px;
+    border-radius: 12px;
+    background: #fff;
+    box-shadow: 0 4px 14px rgba(13,34,96,0.15);
     display: flex;
     align-items: center;
     justify-content: center;
     flex-shrink: 0;
-    font-size: 1.1rem;
+    font-size: 1.35rem;
+    color: var(--blue-dark);
   }
+  .value-icon.gold { color: var(--gold); }
+  .value-icon.green { color: #2ea043; }
   .value-item h4 {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.9rem;
@@ -459,6 +464,94 @@
     letter-spacing: 0.03em;
   }
   .service-card p { font-size: 0.87rem; color: var(--gray); line-height: 1.7; }
+
+
+  /* WHY CHOOSE US — timeline layout */
+  .why-us-section{position:relative;overflow:hidden;background:#f7f8fa;padding:78px 3.5% 42px;}
+  .why-us-section::before{content:"";position:absolute;inset:0 auto 0 0;width:48%;background-image:linear-gradient(90deg,rgba(247,248,250,.82),rgba(247,248,250,.97)),url('images/image_069.jpg');background-size:cover;background-position:center;opacity:.42;pointer-events:none;}
+  .why-us-section::after{content:"";position:absolute;left:0;bottom:0;width:48%;height:55%;background:linear-gradient(180deg,transparent,rgba(247,248,250,.98));pointer-events:none;}
+  .why-us-layout{max-width:1220px;margin:0 auto;display:grid;grid-template-columns:34% 66%;gap:34px;position:relative;z-index:1;}
+  .why-us-lead{padding:36px 26px 0 6px;}
+  .why-us-label{display:inline-block;color:var(--gold);font-family:'Montserrat',sans-serif;font-size:.78rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;margin-bottom:16px;}
+  .why-us-title{font-family:'Montserrat',sans-serif;font-size:clamp(2.45rem,4.6vw,4.15rem);line-height:.98;font-weight:900;color:var(--blue-dark);margin:0 0 24px;max-width:390px;}
+  .why-us-title span{color:var(--gold);display:block;}
+  .why-us-rule{width:60px;height:4px;background:var(--gold);border-radius:2px;margin:0 0 46px;}
+  .why-us-intro{max-width:370px;margin:0;text-align:left;color:#30343b;font-size:1.02rem;line-height:1.85;}
+  .why-us-intro strong{display:block;font-weight:800;color:#222;margin-bottom:18px;}
+  .why-us-timeline{position:relative;padding:0 0 4px 0;}
+  .why-us-timeline::before{content:"";position:absolute;left:-8px;top:62px;bottom:62px;width:1px;background:var(--blue-dark);opacity:.72;}
+  .why-us-card{position:relative;display:grid;grid-template-columns:1fr 250px;min-height:176px;margin:0 0 24px;background:#fff;border-radius:18px;overflow:hidden;box-shadow:0 6px 22px rgba(13,34,96,.08);border:1px solid rgba(13,34,96,.05);opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease;}
+  .why-us-card:last-child{margin-bottom:0;}
+  .why-us-card.is-visible{opacity:1;transform:translateY(0);}
+  .why-us-card:nth-child(1){transition-delay:.04s}.why-us-card:nth-child(2){transition-delay:.12s}.why-us-card:nth-child(3){transition-delay:.20s}.why-us-card:nth-child(4){transition-delay:.28s}.why-us-card:nth-child(5){transition-delay:.36s}
+  .why-us-card::before{content:"";position:absolute;left:-13px;top:57px;width:15px;height:15px;border:3px solid var(--gold);border-radius:50%;background:#f7f8fa;z-index:5;box-sizing:border-box;}
+  .why-us-card:hover{transform:translateY(-5px)!important;box-shadow:0 16px 34px rgba(13,34,96,.14);}
+  .why-us-card-content{padding:28px 24px 25px 88px;position:relative;}
+  .why-us-icon{position:absolute;left:20px;top:22px;width:58px;height:58px;border-radius:14px;background:var(--blue-dark);color:#fff;display:flex;align-items:center;justify-content:center;font-size:1.45rem;box-shadow:0 8px 18px rgba(13,34,96,.16);transition:transform .35s ease;}
+  .why-us-card:hover .why-us-icon{transform:scale(1.06) rotate(-3deg);}
+  .why-us-heading-row{display:flex;align-items:flex-start;gap:12px;margin-bottom:10px;}
+  .why-us-number{flex:0 0 auto;background:var(--gold);color:#fff;font-family:'Montserrat',sans-serif;font-size:.72rem;font-weight:900;padding:6px 7px;border-radius:2px;margin-top:2px;line-height:1;}
+  .why-us-card h3{font-family:'Montserrat',sans-serif;color:var(--blue-dark);font-size:1.13rem;line-height:1.28;font-weight:900;margin:0;max-width:340px;}
+  .why-us-card p{color:#3d4148;font-size:.86rem;line-height:1.75;margin:0;max-width:390px;}
+  .why-us-card-media{position:relative;min-height:176px;overflow:hidden;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);}
+  .why-us-card-media img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .65s ease;}
+  .why-us-card:hover .why-us-card-media img{transform:scale(1.06);}
+  .why-us-stats{max-width:1220px;margin:22px auto 0;background:var(--blue-dark);border-radius:12px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;position:relative;z-index:1;box-shadow:0 8px 20px rgba(13,34,96,.14);}
+  .why-us-stat{min-height:82px;display:flex;align-items:center;justify-content:center;gap:10px;padding:10px 16px;border-right:1px solid rgba(255,255,255,.35);color:#fff;}
+  .why-us-stat:last-child{border-right:none;}
+  .why-us-stat i{font-size:1.65rem;color:var(--gold);width:36px;text-align:center;}
+  .why-us-stat-main{display:flex;flex-direction:column;align-items:flex-start;}
+  .why-us-stat-num{font-family:'Montserrat',sans-serif;font-size:1.55rem;font-weight:900;line-height:1;color:#fff;}
+  .why-us-stat-label{font-family:'Montserrat',sans-serif;color:var(--gold);font-size:.6rem;font-weight:700;letter-spacing:.05em;text-transform:uppercase;margin-top:5px;}
+  @media(max-width:900px){.why-us-layout{grid-template-columns:1fr}.why-us-lead{padding:10px 0 30px}.why-us-title{max-width:none}.why-us-intro{max-width:680px}.why-us-timeline::before{left:-6px}.why-us-card{grid-template-columns:1fr 210px}.why-us-card-content{padding-left:82px}.why-us-stats{grid-template-columns:repeat(2,1fr)}.why-us-stat:nth-child(2){border-right:none}.why-us-stat:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.35)}}
+  /* MOBILE — keep the exact desktop composition: lead left + timeline/cards right + 4 stats in one row */
+  @media(max-width:650px){
+    .why-us-section{padding:34px 10px 16px;overflow:hidden}
+    .why-us-section::before{width:48%;opacity:.30;background-position:center}
+    .why-us-section::after{width:48%;height:60%}
+    /* Keep the reference composition on phones without letting the right column
+       push over the left heading. */
+    .why-us-layout{grid-template-columns:minmax(0,31%) minmax(0,69%);gap:7px;align-items:start;width:100%;min-width:0}
+    .why-us-lead,.why-us-timeline,.why-us-card,.why-us-card-content{min-width:0}
+    .why-us-lead{overflow:visible}
+    .why-us-lead{padding:8px 3px 0 1px}
+    .why-us-label{font-size:6px;letter-spacing:.12em;margin-bottom:8px;white-space:nowrap}
+    .why-us-title{font-size:clamp(1.55rem,7.4vw,2.15rem);line-height:.98;margin:0 0 12px;max-width:100%}
+    .why-us-rule{width:32px;height:3px;margin:0 0 19px}
+    .why-us-intro{max-width:100%;font-size:7.6px;line-height:1.72}
+    .why-us-intro strong{margin-bottom:8px;font-size:8.2px;line-height:1.45}
+    .why-us-timeline{padding:0 0 2px 5px}
+    .why-us-timeline::before{display:block;left:-1px;top:35px;bottom:35px;width:1px}
+    .why-us-card{grid-template-columns:minmax(0,1fr) 72px;min-height:100px;width:100%;margin:0 0 8px;border-radius:11px;box-shadow:0 3px 10px rgba(13,34,96,.08)}
+    .why-us-card:last-child{margin-bottom:0}
+    .why-us-card::before{display:block;left:-7px;top:32px;width:11px;height:11px;border-width:2px}
+    .why-us-card-content{padding:13px 7px 10px 38px}
+    .why-us-icon{left:7px;top:11px;width:25px;height:25px;border-radius:7px;font-size:.7rem;box-shadow:0 3px 7px rgba(13,34,96,.14)}
+    .why-us-heading-row{gap:5px;margin-bottom:5px}
+    .why-us-number{font-size:5.5px;padding:4px 4px;margin-top:1px}
+    .why-us-card h3{font-size:8.5px;line-height:1.25;max-width:none;min-width:0;overflow-wrap:anywhere}
+    .why-us-card p{font-size:6.7px;line-height:1.55;max-width:none;min-width:0;overflow-wrap:anywhere}
+    .why-us-card-media{height:100%;min-height:100px;min-width:0;clip-path:polygon(18% 0,100% 0,100% 100%,0 100%);order:initial}
+    .why-us-card-media img{width:100%;height:100%;min-width:0;object-fit:cover;display:block}
+    .why-us-stats{grid-template-columns:repeat(4,1fr);margin:14px auto 0;border-radius:8px}
+    .why-us-stat{min-height:66px;padding:7px 3px;gap:3px;flex-direction:column;border-right:1px solid rgba(255,255,255,.35)}
+    .why-us-stat:nth-child(2){border-right:1px solid rgba(255,255,255,.35)}
+    .why-us-stat:nth-child(-n+2){border-bottom:none}
+    .why-us-stat i{font-size:1rem;width:auto;line-height:1}
+    .why-us-stat-main{align-items:center}
+    .why-us-stat-num{font-size:1rem}
+    .why-us-stat-label{font-size:4.6px;letter-spacing:.03em;margin-top:3px;text-align:center;white-space:nowrap}
+  }
+  @media(max-width:380px){
+    .why-us-section{padding-left:7px;padding-right:7px}
+    .why-us-layout{grid-template-columns:minmax(0,30%) minmax(0,70%);gap:5px}
+    .why-us-card{grid-template-columns:minmax(0,1fr) 66px}
+    .why-us-card-media{min-height:96px}
+    .why-us-card-content{padding-left:35px}
+    .why-us-card h3{font-size:8px}
+    .why-us-card p{font-size:6.3px}
+  }
+  @media(prefers-reduced-motion:reduce){.why-us-card{opacity:1;transform:none;transition:none}.why-us-card:hover{transform:none!important}.why-us-card-media img,.why-us-icon{transition:none}}
 
   .lb-close, .lb-nav {
     background: rgba(255,255,255,0.12); border: none; color: #fff;
@@ -1130,6 +1223,559 @@
     .pl-brand { font-size: 1.15rem; }
     .pl-bar-track { width: 170px; }
   }
+
+  /* WHY US — compact reading: short preview + unobtrusive expand */
+  .why-us-card-content{display:flex;flex-direction:column;align-items:flex-start;}
+  .why-us-card p[data-i18n^="why"]{
+    display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;overflow:hidden;
+    max-height:3.15em;transition:max-height .38s ease, opacity .25s ease;margin-bottom:8px;
+  }
+  .why-us-card.is-expanded p[data-i18n^="why"]{display:block;-webkit-line-clamp:unset;max-height:260px;overflow:hidden;}
+  .why-more{
+    display:inline-flex;align-items:center;gap:7px;padding:4px 9px;border:1px solid rgba(196,154,38,.55);
+    border-radius:999px;background:transparent;color:var(--blue-dark);font:700 10px/1 'Montserrat',sans-serif;
+    cursor:pointer;transition:background .25s ease,color .25s ease,border-color .25s ease,transform .2s ease;
+  }
+  .why-more:hover{background:rgba(196,154,38,.1);border-color:var(--gold);transform:translateY(-1px)}
+  .why-more-icon{width:15px;height:15px;border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
+    background:var(--blue-dark);color:#fff;font-size:12px;line-height:1;font-weight:900}
+  .why-more-label{white-space:nowrap}
+  @media(max-width:650px){
+    .why-us-card{min-height:118px;}
+    .why-us-card-content{padding:10px 5px 8px 36px;}
+    .why-us-card p[data-i18n^="why"]{font-size:6.3px;line-height:1.48;max-height:2.96em;margin-bottom:5px;}
+    .why-us-card.is-expanded p[data-i18n^="why"]{max-height:150px;}
+    .why-more{font-size:5.7px;padding:3px 6px;gap:4px;}
+    .why-more-icon{width:11px;height:11px;font-size:9px;}
+    .why-us-card-media{min-height:118px;}
+  }
+  @media(max-width:380px){
+    .why-us-card{min-height:114px;}
+    .why-us-card-media{min-height:114px;}
+    .why-us-card p[data-i18n^="why"]{font-size:6px;}
+  }
+
+  /* =========================================================
+     WHY US — reference design
+     Exact visual direction: navy / gold / white, same supplied
+     construction photos, with readable expandable paragraphs.
+     ========================================================= */
+  .why-reference{
+    position:relative;
+    background:#f7f8fa;
+    padding:32px 3.5% 56px;
+    overflow:hidden;
+  }
+  .why-reference::before{
+    content:"";
+    position:absolute;left:0;bottom:0;width:46%;height:58%;
+    background:linear-gradient(180deg,rgba(247,248,250,0),rgba(247,248,250,.97)),
+      url('images/image_069.jpg') center/cover no-repeat;
+    opacity:.18;pointer-events:none;
+  }
+  .why-reference-top{
+    max-width:1220px;margin:0 auto 34px;
+    display:grid;grid-template-columns:34% 66%;
+    gap:32px;align-items:center;position:relative;z-index:1;
+  }
+  .why-reference-intro{padding:22px 0 8px 10px;}
+  .why-ref-label,.why-approach-label{
+    display:block;color:#c49a26;font-family:'Montserrat',sans-serif;
+    font-size:.78rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;
+    margin-bottom:15px;
+  }
+  .why-ref-title{
+    font-family:'Barlow Condensed','Montserrat',sans-serif;
+    font-size:clamp(3rem,5vw,4.65rem);font-weight:800;line-height:.92;
+    color:#0d2260;margin:0 0 22px;text-transform:uppercase;max-width:420px;
+  }
+  .why-ref-title span{color:#c49a26;display:block;}
+  .why-ref-rule{width:58px;height:4px;border-radius:3px;background:#c49a26;margin-bottom:28px;}
+  .why-ref-copy{max-width:390px;color:#1f2937;font-size:.92rem;line-height:1.8;margin:0;}
+  .why-ref-copy strong{display:block;font-weight:800;margin-bottom:12px;color:#111827;}
+  .why-ref-visual{
+    border-radius:18px;overflow:hidden;box-shadow:0 12px 28px rgba(13,34,96,.18);
+    background:#0d2260;position:relative;
+  }
+  .why-ref-visual img{display:block;width:100%;height:auto;aspect-ratio:auto;object-fit:contain;object-position:center;}
+  /* Fine statistics band over the team photo */
+  .why-ref-stats{position:absolute;left:10px;right:10px;bottom:10px;height:54px;background:rgba(11,31,75,.96);border:1px solid rgba(212,165,28,.5);border-radius:9px;display:grid;grid-template-columns:repeat(4,1fr);overflow:hidden;z-index:2;}
+  .why-ref-stat{display:flex;align-items:center;justify-content:center;gap:8px;color:#fff;border-right:1px solid rgba(255,255,255,.22);padding:4px 8px;min-width:0;}
+  .why-ref-stat:last-child{border-right:none;}
+  .why-ref-stat i{color:#D4A51C;font-size:1.15rem;width:25px;text-align:center;flex:0 0 25px;}
+  .why-ref-stat-main{display:flex;flex-direction:column;align-items:flex-start;line-height:1;}
+  .why-ref-stat-num{font-family:'Montserrat',sans-serif;font-size:1.15rem;font-weight:900;color:#fff;}
+  .why-ref-stat-label{font-family:'Montserrat',sans-serif;font-size:.48rem;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:#D4A51C;margin-top:4px;white-space:nowrap;}
+
+  .why-approach{
+    max-width:1220px;margin:0 auto;position:relative;z-index:1;
+    background:#061d42;border-radius:18px;padding:34px 16px 25px;
+    color:#fff;box-shadow:0 12px 30px rgba(13,34,96,.17);
+  }
+  .why-approach-heading{text-align:center;}
+  .why-approach-label{font-size:.72rem;margin-bottom:8px;}
+  .why-approach-heading h3{
+    font-family:'Barlow Condensed','Montserrat',sans-serif;font-size:2.05rem;
+    line-height:1.05;font-weight:800;margin:0;color:#fff;
+  }
+  .why-approach-line{
+    display:flex;align-items:center;max-width:1080px;margin:28px auto 18px;
+    padding:0 5px;height:12px;
+  }
+  .why-approach-line .dot{
+    width:11px;height:11px;border:2px solid #fff;border-radius:50%;
+    background:#061d42;flex:0 0 auto;
+  }
+  .why-approach-line .dot.active{background:#c49a26;border-color:#c49a26;}
+  .why-approach-line .line{height:1px;background:rgba(255,255,255,.75);flex:1;}
+
+  .why-ref-cards{
+    display:grid;grid-template-columns:repeat(5,1fr);
+    gap:0;margin:0;
+  }
+  .why-ref-card{
+    min-width:0;position:relative;padding:0 10px 0;
+    border-right:1px solid rgba(255,255,255,.42);
+    display:flex;flex-direction:column;
+  }
+  .why-ref-card:last-child{border-right:none;}
+  .why-ref-card-body{position:relative;padding:0 4px 0 48px;flex:1;}
+  .why-ref-icon{
+    position:absolute;left:0;top:0;width:38px;height:38px;
+    display:flex;align-items:center;justify-content:center;color:#fff;
+    font-size:1.5rem;
+  }
+  .why-ref-heading{display:flex;align-items:flex-start;gap:7px;margin-bottom:10px;}
+  .why-ref-number{
+    font-family:'Barlow Condensed','Montserrat',sans-serif;color:#f2a51a;
+    font-size:2rem;line-height:.9;font-weight:800;flex:0 0 auto;
+  }
+  .why-ref-card h4{
+    font-family:'Barlow Condensed','Montserrat',sans-serif;color:#fff;
+    font-size:1.05rem;line-height:1.08;font-weight:400;margin:0;text-transform:none;
+  }
+  .why-ref-card p{
+    color:rgba(255,255,255,.92);font-size:.73rem;line-height:1.65;margin:0;
+    display:block;overflow:hidden;max-height:0;opacity:0;
+    transition:max-height .35s ease,opacity .25s ease;
+  }
+  .why-ref-card.is-expanded p{
+    max-height:260px;opacity:1;overflow:hidden;
+  }
+  .why-ref-media{
+    position:relative;margin-top:16px;border-radius:11px;overflow:hidden;
+    height:220px;background:#102a50;
+  }
+  .why-ref-media img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .4s ease;}
+  .why-ref-card:hover .why-ref-media img{transform:scale(1.04);}
+  .why-ref-more{
+    position:relative;left:auto;bottom:auto;margin-top:9px;width:34px;height:34px;border-radius:50%;
+    border:1px solid rgba(13,34,96,.18);background:#fff;color:#061d42;
+    display:flex;align-items:center;justify-content:center;cursor:pointer;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:2;padding:0;flex:0 0 auto;
+  }
+  .why-ref-more .why-more-icon{font-size:22px;font-weight:400;line-height:1;}
+  .why-ref-more .why-more-label{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);}
+  .why-ref-more:hover{transform:scale(1.08);}
+  .why-ref-more[aria-expanded="true"]{background:#c49a26;color:#fff;}
+
+  .why-ref-features{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:0;
+    margin-top:32px;border-top:1px solid rgba(255,255,255,.35);padding-top:20px;
+  }
+  .why-ref-feature{
+    display:flex;align-items:center;gap:12px;padding:4px 18px;
+    border-right:1px solid rgba(255,255,255,.35);
+  }
+  .why-ref-feature:last-child{border-right:none;}
+  .why-ref-feature>i{color:#f2a51a;font-size:2rem;flex:0 0 36px;text-align:center;}
+  .why-ref-feature b{
+    display:block;color:#f2a51a;font:700 .68rem/1.2 'Montserrat',sans-serif;
+    letter-spacing:.03em;margin-bottom:4px;
+  }
+  .why-ref-feature span{display:block;color:#fff;font-size:.7rem;line-height:1.4;}
+
+  @media(max-width:1000px){
+    .why-reference-top{grid-template-columns:1fr 1fr;gap:20px;}
+    .why-ref-title{font-size:clamp(2.8rem,5vw,4rem);}
+    .why-ref-cards{grid-template-columns:repeat(5, minmax(0,1fr));}
+    .why-ref-card{padding:0 7px;}
+    .why-ref-card-body{padding-left:39px;}
+    .why-ref-icon{width:32px;font-size:1.2rem;}
+    .why-ref-number{font-size:1.7rem;}
+    .why-ref-card h4{font-size:.88rem;}
+    .why-ref-card p{font-size:.64rem;}
+    .why-ref-media{height:180px;}
+  }
+
+  @media(max-width:650px){
+    .why-reference{padding:30px 10px 20px;}
+    .why-reference::before{width:80%;height:42%;opacity:.14;}
+    .why-reference-top{display:flex;flex-direction:column;gap:16px;align-items:stretch;margin-bottom:16px;}
+    .why-reference-intro{padding:5px 12px 0 8px;}
+    .why-ref-label{font-size:.57rem;letter-spacing:.14em;margin-bottom:8px;}
+    .why-ref-title{font-size:clamp(2.45rem,13vw,3.6rem);line-height:.88;margin-bottom:13px;max-width:100%;}
+    .why-ref-rule{width:38px;height:3px;margin-bottom:17px;}
+    .why-ref-copy{font-size:.72rem;line-height:1.7;max-width:100%;}
+    .why-ref-copy strong{margin-bottom:7px;}
+    .why-ref-visual{border-radius:13px;margin:0 4px;box-shadow:0 7px 18px rgba(13,34,96,.18);}
+    .why-ref-visual img{aspect-ratio:auto;object-fit:contain;}
+    .why-ref-stats{left:5px;right:5px;bottom:5px;height:42px;border-radius:7px;}
+    .why-ref-stat{gap:3px;padding:3px 2px;}
+    .why-ref-stat i{font-size:.75rem;width:16px;flex-basis:16px;}
+    .why-ref-stat-num{font-size:.78rem;}
+    .why-ref-stat-label{font-size:3.6px;letter-spacing:.02em;margin-top:2px;}
+    .why-approach{border-radius:13px;padding:22px 10px 13px;}
+    .why-approach-label{font-size:.57rem;margin-bottom:6px;}
+    .why-approach-heading h3{font-size:1.45rem;}
+    .why-approach-line{margin:18px auto 13px;height:8px;padding:0 1px;}
+    .why-approach-line .dot{width:7px;height:7px;border-width:1px;}
+    .why-ref-cards{display:flex;flex-direction:column;gap:0;}
+    .why-ref-card{
+      display:grid;grid-template-columns:minmax(0,1fr) 76px;
+      min-height:112px;padding:0;margin:0;border-right:none;
+      border-bottom:1px solid rgba(255,255,255,.35);
+    }
+    .why-ref-card:last-child{border-bottom:none;}
+    .why-ref-card-body{padding:11px 7px 9px 35px;}
+    .why-ref-icon{left:5px;top:11px;width:24px;height:24px;font-size:.75rem;}
+    .why-ref-heading{gap:4px;margin-bottom:5px;}
+    .why-ref-number{font-size:1.5rem;line-height:.88;}
+    .why-ref-card h4{font-size:.72rem;line-height:1.12;}
+    .why-ref-card p{
+      font-size:.58rem;line-height:1.48;max-height:0;opacity:0;margin:0;
+      transition:max-height .35s ease,opacity .25s ease;
+    }
+    .why-ref-card.is-expanded p{max-height:150px;opacity:1;}
+    .why-ref-media{height:auto;min-height:112px;margin:0;border-radius:0;overflow:visible;}
+    .why-ref-media img{border-radius:9px;margin:7px 4px 7px 0;width:calc(100% - 4px);height:calc(100% - 14px);}
+    .why-ref-more{left:auto;bottom:auto;margin-top:6px;width:27px;height:27px;}
+    .why-ref-more .why-more-icon{font-size:18px;}
+    .why-ref-features{grid-template-columns:1fr 1fr;margin-top:14px;padding-top:12px;}
+    .why-ref-feature{padding:8px 7px;min-height:55px;gap:7px;border-right:1px solid rgba(255,255,255,.35);}
+    .why-ref-feature:nth-child(2){border-right:none;}
+    .why-ref-feature:nth-child(-n+2){border-bottom:1px solid rgba(255,255,255,.35);}
+    .why-ref-feature>i{font-size:1.3rem;flex-basis:25px;}
+    .why-ref-feature b{font-size:.48rem;margin-bottom:2px;}
+    .why-ref-feature span{font-size:.5rem;line-height:1.3;}
+  }
+
+  @media(max-width:380px){
+    .why-reference{padding-left:8px;padding-right:8px;}
+    .why-ref-copy{font-size:.66rem;}
+    .why-ref-title{font-size:2.25rem;}
+    .why-ref-card{grid-template-columns:minmax(0,1fr) 70px;min-height:106px;}
+    .why-ref-card-body{padding-left:31px;}
+    .why-ref-card h4{font-size:.67rem;}
+    .why-ref-card p{font-size:.54rem;}
+    .why-ref-media{min-height:106px;}
+  }
+
+  /* FINAL BEHAVIOR — show paragraph only after clicking the + beside the paragraph */
+  .why-reference .why-ref-card p{
+    display:-webkit-box;
+    -webkit-box-orient:vertical;
+    -webkit-line-clamp:5;
+    overflow:hidden;
+    max-height:6.1em;
+  }
+  .why-reference .why-ref-card.is-expanded p{display:block;max-height:none;overflow:visible;}
+  .why-reference .why-ref-more{display:flex !important;}
+  .why-reference .why-ref-more .why-more-icon{display:flex;}
+
+  /* FINAL UI: larger titles + expand button beside the title */
+  .why-reference .why-ref-heading{align-items:center;gap:9px;margin-bottom:10px;}
+  .why-reference .why-ref-card h4{font-size:1.22rem;line-height:1.12;font-weight:400;}
+  .why-reference .why-ref-more{position:static;width:30px;height:30px;min-width:30px;margin:0 0 0 4px;border-radius:50%;}
+  .why-reference .why-ref-more .why-more-icon{font-size:20px;}
+  .why-reference .why-ref-card p{display:block;max-height:0;opacity:0;overflow:hidden;-webkit-line-clamp:unset;transition:max-height .35s ease,opacity .25s ease;}
+  .why-reference .why-ref-card.is-expanded p{max-height:260px;opacity:1;overflow:visible;}
+  @media(max-width:1000px){.why-reference .why-ref-card h4{font-size:1.02rem;font-weight:400}.why-reference .why-ref-more{width:28px;height:28px;min-width:28px}}
+  @media(max-width:650px){.why-reference .why-ref-heading{gap:4px;align-items:center;margin-bottom:5px}.why-reference .why-ref-card h4{font-size:.82rem;font-weight:400;line-height:1.14}.why-reference .why-ref-more{width:27px;height:27px;min-width:27px;margin-left:2px}.why-reference .why-ref-more .why-more-icon{font-size:18px}.why-reference .why-ref-card p{font-size:.58rem;line-height:1.48}}
+  @media(max-width:380px){.why-reference .why-ref-card h4{font-size:.76rem;font-weight:400}}
+
+
+  /* FINAL: title centered + simple + next to title; paragraph hidden until clicked */
+  .why-reference .why-ref-heading{justify-content:center;align-items:center;gap:8px;text-align:center;}
+  .why-reference .why-ref-heading h4{text-align:center;}
+  .why-reference .why-ref-more{position:static;width:auto;height:auto;border:0;background:none !important;color:#fff;box-shadow:none;padding:0;margin:0;display:inline-flex !important;align-items:center;justify-content:center;cursor:pointer;line-height:1;}
+  .why-reference .why-ref-more:hover{transform:none;}
+  .why-reference .why-ref-more .why-more-icon{font-size:22px;font-weight:500;line-height:1;}
+  .why-reference .why-ref-more .why-more-label{display:none;}
+  .why-reference .why-ref-card p{display:none;}
+  .why-reference .why-ref-card.is-expanded p{display:block;max-height:none;overflow:visible;}
+  @media(max-width:650px){
+    .why-reference .why-ref-heading{justify-content:center;gap:6px;}
+    .why-reference .why-ref-more .why-more-icon{font-size:20px;}
+  }
+
+  /* FINAL FIX: partner/why-us card titles must NOT be bold */
+  .why-reference .why-ref-card h4,
+  .why-reference .why-ref-heading h4 {
+    font-weight: 400 !important;
+  }
+</style>
+<style>
+/* ===== NOUVELLE ORGANISATION - À propos / Nos Engagements ===== */
+#about {
+  padding-top: 90px;
+  padding-bottom: 90px;
+}
+#about .about-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 70px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+#about .about-content {
+  min-width: 0;
+}
+#about .about-content .section-intro {
+  margin-bottom: 24px;
+}
+#about .about-p2 {
+  font-size: 0.95rem;
+  color: var(--gray);
+  line-height: 1.8;
+  margin: 0;
+}
+#about .engagements-wrap {
+  max-width: 1200px;
+  margin: 58px auto 0;
+}
+#about .engagements-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--blue-dark);
+  text-align: center;
+  margin: 0 0 24px;
+}
+#about .about-values {
+  display: grid !important;
+  grid-template-columns: repeat(5, minmax(0, 1fr)) !important;
+  gap: 16px !important;
+  margin: 0 !important;
+}
+#about .value-item {
+  min-width: 0;
+  min-height: 245px;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 12px;
+  padding: 22px 15px 20px;
+  background: #123a63;
+  border-radius: 12px;
+  border-left: 0;
+  border-top: 3px solid var(--blue-light);
+  color: #fff;
+  transition: border-color .2s, transform .2s, box-shadow .2s;
+}
+#about .value-item:hover {
+  border-top-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 10px 28px rgba(13,34,96,.10);
+}
+#about .value-icon {
+  width: 62px !important;
+  height: 62px !important;
+  min-width: 62px !important;
+  border-radius: 12px;
+  margin: 0 0 4px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  background: #fff;
+}
+#about .value-icon img {
+  width: 44px !important;
+  height: 44px !important;
+  object-fit: contain !important;
+  display: block !important;
+}
+#about .value-item > div:last-child {
+  width: 100%;
+}
+#about .value-item h4 {
+  color: #D4A51C;
+  font-size: 0.92rem;
+  line-height: 1.3;
+  margin: 0 0 8px;
+}
+#about .value-item p {
+  color: rgba(255,255,255,.78);
+  font-size: 0.78rem;
+  line-height: 1.55;
+  margin: 0;
+}
+@media (max-width: 1050px) {
+  #about .about-grid { gap: 40px; }
+  #about .about-values { grid-template-columns: repeat(3, minmax(0,1fr)) !important; }
+}
+@media (max-width: 700px) {
+  #about .about-grid {
+    grid-template-columns: 1fr;
+    gap: 35px;
+  }
+  #about .engagements-wrap { margin-top: 42px; }
+  #about .about-values { grid-template-columns: repeat(2, minmax(0,1fr)) !important; }
+}
+@media (max-width: 460px) {
+  #about .about-values { grid-template-columns: 1fr !important; }
+  #about .value-item { min-height: 0; }
+}
+</style>
+<style>
+/* ===== NOS ENGAGEMENTS — ANIMATION PROFESSIONNELLE ===== */
+#about .engagements-wrap{
+  position:relative;
+}
+#about .engagements-heading{
+  opacity:0;
+  transform:translateY(18px);
+  transition:opacity .7s ease, transform .7s cubic-bezier(.22,1,.36,1);
+}
+#about .engagements-wrap.engaged .engagements-heading{
+  opacity:1;
+  transform:translateY(0);
+}
+#about .about-values .value-item{
+  position:relative;
+  overflow:hidden;
+  opacity:0;
+  transform:translateY(34px) scale(.97);
+  transition:
+    opacity .7s ease,
+    transform .75s cubic-bezier(.22,1,.36,1),
+    box-shadow .35s ease,
+    border-color .35s ease;
+  transition-delay:calc(var(--eng-i, 0) * 100ms);
+}
+#about .engagements-wrap.engaged .about-values .value-item{
+  opacity:1;
+  transform:translateY(0) scale(1);
+}
+#about .about-values .value-item::before{
+  content:"";
+  position:absolute;
+  left:0;
+  top:0;
+  width:100%;
+  height:3px;
+  background:linear-gradient(90deg, var(--blue-light), var(--gold), var(--blue-light));
+  transform:scaleX(0);
+  transform-origin:left center;
+  transition:transform .8s cubic-bezier(.22,1,.36,1);
+  transition-delay:calc(var(--eng-i, 0) * 100ms + 250ms);
+}
+#about .engagements-wrap.engaged .about-values .value-item::before{
+  transform:scaleX(1);
+}
+#about .engagements-mobile-nav{display:none;}
+
+@media (max-width:768px){
+  #about .engagements-wrap{
+    overflow:hidden;
+  }
+  #about .about-values{
+    display:block !important;
+    grid-template-columns:none !important;
+    width:100%;
+    padding:0;
+    margin:0 !important;
+    overflow:hidden;
+    touch-action:pan-y;
+  }
+  #about .about-values .value-item{
+    display:none;
+    width:100%;
+    min-width:100%;
+    box-sizing:border-box;
+    opacity:1 !important;
+    transform:none !important;
+    transition:opacity .35s ease, box-shadow .35s ease, border-color .35s ease;
+  }
+  #about .about-values .value-item.mobile-active{
+    display:flex;
+  }
+  #about .engagements-mobile-nav{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:14px;
+    margin-top:16px;
+  }
+  #about .engagements-arrow{
+    width:34px;
+    height:34px;
+    border:1px solid rgba(13,34,96,.18);
+    border-radius:50%;
+    background:#fff;
+    color:var(--blue-dark);
+    font-size:24px;
+    line-height:1;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:0 0 3px;
+  }
+  #about .engagements-arrow:active{transform:scale(.94);}
+  #about .engagements-dots{display:flex;align-items:center;gap:6px;}
+  #about .engagements-dot{
+    width:7px;height:7px;border-radius:50%;background:#cbd2df;
+    transition:all .25s ease;
+  }
+  #about .engagements-dot.active{width:20px;border-radius:8px;background:var(--blue-light);}
+}
+
+
+#about .about-values .value-icon{
+  position:relative;
+  transform:translateY(8px);
+  opacity:0;
+  transition:transform .65s cubic-bezier(.22,1,.36,1), opacity .55s ease, box-shadow .35s ease;
+  transition-delay:calc(var(--eng-i, 0) * 100ms + 180ms);
+}
+#about .engagements-wrap.engaged .about-values .value-icon{
+  transform:translateY(0);
+  opacity:1;
+}
+#about .about-values .value-icon img{
+  transition:transform .5s cubic-bezier(.22,1,.36,1);
+}
+#about .about-values .value-item:hover{
+  transform:translateY(-8px) scale(1.015);
+  box-shadow:0 18px 38px rgba(13,34,96,.14);
+}
+#about .about-values .value-item:hover .value-icon{
+  box-shadow:0 8px 20px rgba(13,34,96,.13);
+}
+#about .about-values .value-item:hover .value-icon img{
+  transform:scale(1.12) rotate(-3deg);
+}
+#about .about-values .value-item h4{
+  transition:color .3s ease, transform .3s ease;
+}
+#about .about-values .value-item:hover h4{
+  color:#D4A51C;
+  transform:translateY(-2px);
+}
+@media (prefers-reduced-motion: reduce){
+  #about .engagements-heading,
+  #about .about-values .value-item,
+  #about .about-values .value-icon{
+    opacity:1 !important;
+    transform:none !important;
+    transition:none !important;
+  }
+  #about .about-values .value-item::before{transform:scaleX(1);transition:none;}
+}
 </style>
 </head>
 <body>
@@ -1193,7 +1839,8 @@ window.__plTarget = 12;
   </div>
   <div class="nav-links" id="navLinks">
     <a href="#about" data-i18n="nav_about">À Propos</a>
-    <a href="#services" data-i18n="nav_services">Services</a>
+    <a href="#services" data-i18n="nav_services">Secteurs d’intervention</a>
+    <a href="#why-us" data-i18n="nav_why">Pourquoi nous choisir ?</a>
     <a href="#partenaires" data-i18n="nav_partners">Partenaires</a>
     <a href="#contact" data-i18n="nav_contact">Contact</a>
   </div>
@@ -1227,26 +1874,6 @@ window.__plTarget = 12;
   </div>
 </section>
 
-<!-- STATS -->
-<div class="stats-strip">
-  <div class="stat-item">
-    <span class="stat-num">2008</span>
-    <span class="stat-label" data-i18n="stat1">Fondée en</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">IV</span>
-    <span class="stat-label" data-i18n="stat2">Qualification</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">15+</span>
-    <span class="stat-label" data-i18n="stat3">Projets Majeurs</span>
-  </div>
-  <div class="stat-item">
-    <span class="stat-num">8</span>
-    <span class="stat-label" data-i18n="stat4">Partenaires Clés</span>
-  </div>
-</div>
-
 <!-- ABOUT -->
 <section id="about">
   <div class="about-grid">
@@ -1254,88 +1881,287 @@ window.__plTarget = 12;
       <img src="images/image_004_tight.jpg" alt="EURL M Construction - Oran, Algérie">
       <div class="about-img-badge" data-i18n="about_badge">EURL M Construction · Oran, Algérie</div>
     </div>
-    <div>
+    <div class="about-content">
       <span class="section-label" data-i18n="about_label">Qui sommes-nous</span>
       <h2 class="section-title" data-i18n="about_h2">Une histoire de <span>rigueur</span> et d'excellence</h2>
       <div class="divider"></div>
       <p class="section-intro" data-i18n="about_p1">Notre société ETB TCE MESSIKH MARC SAMI, créée en 2008, a réalisé de nombreux projets de construction et a atteint la qualification IV. L'évolution constante de l'entreprise nous a conduits à devenir <strong>EURL M Construction</strong> en 2023.</p>
-      <p style="font-size:0.95rem;color:var(--gray);line-height:1.8;margin-bottom:32px;" data-i18n="about_p2">Depuis 2023, M Construction a tracé son chemin en réalisant plusieurs projets significatifs et en relevant de nouveaux défis, notamment dans le cadre de grands projets où la polyvalence est essentielle.</p>
-      <div class="about-values">
-        <div class="value-item">
-          <div class="value-icon">⭐</div>
-          <div>
-            <h4 data-i18n="val1_h">Satisfaction Partenaires</h4>
-            <p data-i18n="val1_p">Qualité des prestations, maîtrise des coûts et respect des délais d'exécution.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">🔧</div>
-          <div>
-            <h4 data-i18n="val2_h">Excellence des Équipes</h4>
-            <p data-i18n="val2_p">Maintien et amélioration continue des compétences, gages de performance et fiabilité.</p>
-          </div>
-        </div>
-        <div class="value-item">
-          <div class="value-icon">⚡</div>
-          <div>
-            <h4 data-i18n="val3_h">Agilité & Réactivité</h4>
-            <p data-i18n="val3_p">Forte capacité d'adaptation pour répondre efficacement aux besoins de chaque projet.</p>
-          </div>
-        </div>
+      <p class="about-p2" data-i18n="about_p2">Depuis 2023, M Construction a tracé son chemin en réalisant plusieurs projets significatifs et en relevant de nouveaux défis, notamment dans le cadre de grands projets où la polyvalence est essentielle.</p>
+    </div>
+  </div>
+
+  <div class="engagements-wrap">
+    <h2 class="section-title engagements-heading" data-i18n="engagements_title">Nos <span>Engagements</span></h2>
+    <div class="about-values" id="engagementsSlider">
+      <div class="value-item" style="--eng-i:1">
+        <div class="value-icon"><img src="images/engagements/engagement-03.png" alt=""></div>
+        <div><h4 data-i18n="val1_h">Satisfaction Partenaires</h4><p data-i18n="val1_p">Qualité des prestations, maîtrise des coûts et respect des délais d'exécution.</p></div>
+      </div>
+      <div class="value-item" style="--eng-i:2">
+        <div class="value-icon"><img src="images/engagements/engagement-02.png" alt=""></div>
+        <div><h4 data-i18n="val2_h">Excellence des Équipes</h4><p data-i18n="val2_p">Des équipes qualifiées et expérimentées, engagées pour garantir performance, sécurité et fiabilité.</p></div>
+      </div>
+      <div class="value-item" style="--eng-i:3">
+        <div class="value-icon"><img src="images/engagements/engagement-01.png" alt=""></div>
+        <div><h4 data-i18n="val3_h">Agilité & Réactivité</h4><p data-i18n="val3_p">Une forte capacité d'adaptation pour répondre efficacement aux exigences de chaque projet.</p></div>
+      </div>
+      <div class="value-item" style="--eng-i:4">
+        <div class="value-icon"><img src="images/engagements/engagement-05.png" alt=""></div>
+        <div><h4 data-i18n="val4_h">Sécurité & Qualité</h4><p data-i18n="val4_p">Une exigence constante en matière de qualité, de sécurité et de respect des normes sur chaque chantier.</p></div>
+      </div>
+      <div class="value-item" style="--eng-i:5">
+        <div class="value-icon"><img src="images/engagements/engagement-04.png" alt=""></div>
+        <div><h4 data-i18n="val5_h">Engagement & Responsabilité</h4><p data-i18n="val5_p">Une approche responsable intégrant la maîtrise des ressources, la protection de l'environnement et la pérennité des ouvrages.</p></div>
+      </div>
+    </div>
+    <div class="engagements-mobile-nav" aria-label="Navigation des engagements">
+      <button type="button" class="engagements-arrow" id="engagementPrev" aria-label="Engagement précédent">‹</button>
+      <div class="engagements-dots" id="engagementDots"></div>
+      <button type="button" class="engagements-arrow" id="engagementNext" aria-label="Engagement suivant">›</button>
+    </div>
+  </div>
+</section>
+
+
+
+<script>
+/* Animation d'entrée des engagements au défilement */
+(function(){
+  const section = document.querySelector('#about .engagements-wrap');
+  if(!section) return;
+
+  const reveal = () => section.classList.add('engaged');
+
+  if(window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    reveal();
+    return;
+  }
+
+  const observer = new IntersectionObserver((entries, obs) => {
+    entries.forEach(entry => {
+      if(entry.isIntersecting){
+        reveal();
+        obs.unobserve(entry.target);
+      }
+    });
+  }, {threshold:0.18, rootMargin:'0px 0px -40px 0px'});
+
+  observer.observe(section);
+})();
+
+/* Engagements : un seul élément visible à la fois sur téléphone */
+(function(){
+  const slider = document.getElementById('engagementsSlider');
+  const prev = document.getElementById('engagementPrev');
+  const next = document.getElementById('engagementNext');
+  const dots = document.getElementById('engagementDots');
+  if(!slider || !prev || !next || !dots) return;
+
+  const cards = Array.from(slider.querySelectorAll('.value-item'));
+  let index = 0;
+  let timer = null;
+  let startX = 0;
+  let dragging = false;
+
+  cards.forEach((_, i) => {
+    const dot = document.createElement('button');
+    dot.type = 'button';
+    dot.className = 'engagements-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('aria-label', 'Voir l’engagement ' + (i + 1));
+    dot.addEventListener('click', () => goTo(i, true));
+    dots.appendChild(dot);
+  });
+
+  function mobile(){ return window.matchMedia('(max-width:768px)').matches; }
+  function render(){
+    if(!mobile()){
+      cards.forEach(c => {
+        c.style.transform = '';
+        c.classList.remove('mobile-active');
+      });
+      return;
+    }
+    cards.forEach((c,i) => c.classList.toggle('mobile-active', i === index));
+    dots.querySelectorAll('.engagements-dot').forEach((d,i)=>d.classList.toggle('active', i===index));
+  }
+  function goTo(i, restart){
+    index = (i + cards.length) % cards.length;
+    render();
+    if(restart) restartAuto();
+  }
+  function restartAuto(){
+    clearInterval(timer);
+    if(mobile()) timer = setInterval(() => goTo(index + 1, false), 4500);
+  }
+
+  prev.addEventListener('click', () => goTo(index - 1, true));
+  next.addEventListener('click', () => goTo(index + 1, true));
+  slider.addEventListener('touchstart', e => { if(mobile()){ startX=e.touches[0].clientX; dragging=true; } }, {passive:true});
+  slider.addEventListener('touchend', e => {
+    if(!dragging || !mobile()) return;
+    const dx=e.changedTouches[0].clientX-startX;
+    dragging=false;
+    if(Math.abs(dx)>45) goTo(index + (dx < 0 ? 1 : -1), true);
+  }, {passive:true});
+  window.addEventListener('resize', () => { render(); restartAuto(); });
+  render();
+  restartAuto();
+})();
+</script>
+
+<style>
+/* Nos Engagements — même design que les grands titres de section */
+#about .engagements-heading {
+  font-family: 'Montserrat', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 900;
+  color: var(--blue-dark);
+  line-height: 1.15;
+  text-align: center;
+  margin: 0 0 24px;
+}
+#about .engagements-heading span { color: var(--gold); }
+</style>
+
+<!-- SERVICES -->
+<section class="services-section" id="services">
+  <div style="text-align:center;max-width:1200px;margin:0 auto;">
+    <span class="section-label" data-i18n="serv_label">Nos Secteurs d’intervention</span>
+    <h2 class="section-title" data-i18n="serv_h2">Nos <span>Secteurs d’intervention</span></h2>
+    <div class="divider" style="margin:0 auto 20px;"></div>
+    <p class="section-intro" style="margin:0 auto 48px;" data-i18n="serv_p">Des compétences complémentaires pour intervenir efficacement sur des projets industriels et civils, de la préparation à la réalisation.</p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card">
+      <img src="images/image_019.jpg" alt="Génie Civil & Gros Œuvre" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🏛️</div>
+        <h3 data-i18n="s1_h">Génie Civil & Gros Œuvre</h3>
+        <p data-i18n="s1_p">Réalisation de travaux de génie civil et de gros œuvre pour bâtiments résidentiels et industriels, incluant fondations, structures en béton, maçonnerie et construction de locaux et ouvrages.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_051.jpg" alt="Charpente métallique, racks et réservoirs de stockage" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🏗️</div>
+        <h3 data-i18n="s2_h">Charpente Métallique, Racks & Réservoirs</h3>
+        <p data-i18n="s2_p">Conception, fabrication et montage de charpentes métalliques, hangars de différents types, racks industriels et réservoirs de stockage, adaptés aux exigences de chaque projet.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_032.jpg" alt="Électricité et instrumentation" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">⚡</div>
+        <h3 data-i18n="s3_h">Électricité & Instrumentation</h3>
+        <p data-i18n="s3_p">Installation électrique, câblage, instrumentation, contrôle-commande et mise en service des équipements et installations industriels.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_012.jpg" alt="Aménagement et rénovation" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🏢</div>
+        <h3 data-i18n="s4_h">Aménagement & Rénovation</h3>
+        <p data-i18n="s4_p">Réalisation de travaux d'aménagement, de rénovation et de réhabilitation, incluant modification des cloisons, réorganisation des espaces, revêtements, peinture et travaux de finition.</p>
+      </div>
+    </div>
+    <div class="service-card">
+      <img src="images/image_027.jpg" alt="Maintenance industrielle" class="service-card-img">
+      <div class="service-card-body">
+        <div class="service-card-icon">🔧</div>
+        <h3 data-i18n="s5_h">Maintenance Industrielle</h3>
+        <p data-i18n="s5_p">Maintenance préventive et curative des équipements et installations industriels, diagnostic des défaillances, interventions techniques et remise en service pour garantir leur disponibilité et leur performance.</p>
       </div>
     </div>
   </div>
 </section>
 
 
-<!-- SERVICES -->
-<section class="services-section" id="services">
-  <div style="text-align:center;max-width:1200px;margin:0 auto;">
-    <span class="section-label" data-i18n="serv_label">Nos Expertises</span>
-    <h2 class="section-title" data-i18n="serv_h2">Nos <span>Services</span></h2>
-    <div class="divider" style="margin:0 auto 20px;"></div>
-    <p class="section-intro" style="margin:0 auto 48px;" data-i18n="serv_p">Une entreprise polyvalente couvrant l'ensemble des métiers de la construction industrielle et civile.</p>
+<!-- WHY CHOOSE US -->
+<section class="why-reference" id="why-us">
+  <div class="why-reference-top">
+    <div class="why-reference-intro">
+      <span class="why-ref-label" data-i18n="why_label">Notre engagement</span>
+      <h2 class="why-ref-title" data-i18n="why_h2">Pourquoi <span>nous choisir ?</span></h2>
+      <div class="why-ref-rule"></div>
+      <p class="why-ref-copy" data-i18n="why_intro"><strong>Parce qu’un projet ne se résume pas à son exécution.</strong>Nous réunissons l’expertise technique, la capacité d’intervention et l’expérience terrain nécessaires pour accompagner nos clients sur des projets de différentes tailles et complexités.</p>
+    </div>
+    <div class="why-ref-visual">
+      <img src="images/why-us-team.jpg" alt="Équipe M Construction sur site, projets majeurs et indicateurs">
+    </div>
   </div>
-  <div class="services-grid">
-    <div class="service-card">
-      <img src="images/image_019.jpg" alt="Génie Civil" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🏛️</div>
-        <h3 data-i18n="s1_h">Génie Civil</h3>
-        <p data-i18n="s1_p">Fondations, massifs, dalles béton armé, ferraillage, coffrage et infrastructure industrielle.</p>
-      </div>
+
+  <div class="why-approach">
+    <div class="why-approach-heading">
+      <span class="why-approach-label">NOTRE VALEUR AJOUTÉE</span>
+      <h3></h3>
     </div>
-    <div class="service-card">
-      <img src="images/image_051.jpg" alt="Charpente métallique et réservoirs de stockage" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🏗️</div>
-        <h3 data-i18n="s2_h">Charpente Métallique & Réservoirs de Stockage</h3>
-        <p data-i18n="s2_p">Structures métalliques, hangars, passerelles industrielles et réservoirs de stockage (150 M³ à 650 M³).</p>
-      </div>
+
+    <div class="why-approach-line" aria-hidden="true">
+      <span class="dot active"></span><span class="line"></span><span class="dot"></span><span class="line"></span><span class="dot"></span><span class="line"></span><span class="dot"></span><span class="line"></span><span class="dot"></span><span class="line"></span><span class="dot"></span>
     </div>
-    <div class="service-card">
-      <img src="images/image_050.jpg" alt="CES" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🔩</div>
-        <h3 data-i18n="s3_h">CES</h3>
-        <p data-i18n="s3_p">Corps d'état secondaires : tuyauterie, raccordements, installations mécaniques, test et mise en service.</p>
-      </div>
+
+    <div class="why-ref-cards">
+      <article class="why-ref-card">
+        <div class="why-ref-card-body">
+          <div class="why-ref-icon"><i class="fa-solid fa-users"></i></div>
+          <div class="why-ref-heading"><span class="why-ref-number">01</span><h4 data-i18n="why1_h">Un seul partenaire pour plusieurs métiers</h4>
+          <button class="why-ref-more" type="button" onclick="toggleWhy(this)" aria-expanded="false"><span class="why-more-icon">+</span><span class="why-more-label" data-i18n="why_more">Lire plus</span></button>
+        </div>
+          <p data-i18n="why1_p">De la préparation à la réalisation, nos compétences couvrent plusieurs domaines complémentaires, ce qui facilite la coordination et limite le recours à plusieurs intervenants.</p>
+        </div>
+        <div class="why-ref-media"><img src="images/image_015.jpg" alt="Équipe M Construction sur site"></div>
+      </article>
+
+      <article class="why-ref-card">
+        <div class="why-ref-card-body">
+          <div class="why-ref-icon"><i class="fa-solid fa-helmet-safety"></i></div>
+          <div class="why-ref-heading"><span class="why-ref-number">02</span><h4 data-i18n="why2_h">Une équipe capable de répondre aux exigences du terrain</h4>
+          <button class="why-ref-more" type="button" onclick="toggleWhy(this)" aria-expanded="false"><span class="why-more-icon">+</span><span class="why-more-label" data-i18n="why_more">Lire plus</span></button>
+        </div>
+          <p data-i18n="why2_p">Notre personnel, qualifié et expérimenté, nous permet de mobiliser les compétences adaptées à chaque mission et de faire face aux contraintes des projets industriels.</p>
+        </div>
+        <div class="why-ref-media"><img src="images/image_055.jpg" alt="Équipe et installations industrielles"></div>
+      </article>
+
+      <article class="why-ref-card">
+        <div class="why-ref-card-body">
+          <div class="why-ref-icon"><i class="fa-solid fa-gear"></i></div>
+          <div class="why-ref-heading"><span class="why-ref-number">03</span><h4 data-i18n="why3_h">Une organisation pensée pour avancer.</h4>
+          <button class="why-ref-more" type="button" onclick="toggleWhy(this)" aria-expanded="false"><span class="why-more-icon">+</span><span class="why-more-label" data-i18n="why_more">Lire plus</span></button>
+        </div>
+          <p data-i18n="why3_p">Nous privilégions une communication directe, une prise de décision rapide et une organisation flexible afin de maintenir le rythme des travaux et répondre aux imprévus.</p>
+        </div>
+        <div class="why-ref-media"><img src="images/image_054.jpg" alt="Travaux de construction et levage"></div>
+      </article>
+
+      <article class="why-ref-card">
+        <div class="why-ref-card-body">
+          <div class="why-ref-icon"><i class="fa-solid fa-bullseye"></i></div>
+          <div class="why-ref-heading"><span class="why-ref-number">04</span><h4 data-i18n="why4_h">Une expérience qui se traduit par des résultats</h4>
+          <button class="why-ref-more" type="button" onclick="toggleWhy(this)" aria-expanded="false"><span class="why-more-icon">+</span><span class="why-more-label" data-i18n="why_more">Lire plus</span></button>
+        </div>
+          <p data-i18n="why4_p">Notre savoir-faire dans différents secteurs nous permet de comprendre les contraintes de nos clients et de proposer des solutions adaptées, réalistes et efficaces.</p>
+        </div>
+        <div class="why-ref-media"><img src="images/image_058.jpg" alt="Réservoir industriel"></div>
+      </article>
+
+      <article class="why-ref-card">
+        <div class="why-ref-card-body">
+          <div class="why-ref-icon"><i class="fa-solid fa-shield-halved"></i></div>
+          <div class="why-ref-heading"><span class="why-ref-number">05</span><h4 data-i18n="why5_h">Sécurité, qualité et satisfaction</h4>
+          <button class="why-ref-more" type="button" onclick="toggleWhy(this)" aria-expanded="false"><span class="why-more-icon">+</span><span class="why-more-label" data-i18n="why_more">Lire plus</span></button>
+        </div>
+          <p data-i18n="why5_p">La sécurité, la qualité d’exécution et la satisfaction de nos clients sont au cœur de nos priorités à chaque étape du projet.</p>
+        </div>
+        <div class="why-ref-media"><img src="images/image_060.jpg" alt="Partenariat et satisfaction client"></div>
+      </article>
     </div>
-    <div class="service-card">
-      <img src="images/image_012.jpg" alt="Aménagement" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">🏢</div>
-        <h3 data-i18n="s4_h">Aménagement</h3>
-        <p data-i18n="s4_p">Réhabilitation de bureaux, vestiaires et aménagements intérieurs et extérieurs.</p>
-      </div>
-    </div>
-    <div class="service-card">
-      <img src="images/image_032.jpg" alt="Travaux d'électricité et instrumentation" class="service-card-img">
-      <div class="service-card-body">
-        <div class="service-card-icon">⚡</div>
-        <h3 data-i18n="s5_h">Travaux d'Électricité & Instrumentation</h3>
-        <p data-i18n="s5_p">Travaux électriques, maintenance préventive postes HTA/BT, instrumentation et mise en service.</p>
-      </div>
+
+    <div class="why-ref-features">
+      <div class="why-ref-feature"><i class="fa-solid fa-circle-check"></i><div><b>RÉACTIVITÉ</b><span>Intervention rapide et efficace</span></div></div>
+      <div class="why-ref-feature"><i class="fa-solid fa-user-helmet-safety"></i><div><b>ÉQUIPE QUALIFIÉE</b><span>Compétences certifiées et formations continues</span></div></div>
+      <div class="why-ref-feature"><i class="fa-solid fa-gear"></i><div><b>MATÉRIEL PERFORMANT</b><span>Équipements adaptés aux exigences du terrain</span></div></div>
+      <div class="why-ref-feature"><i class="fa-solid fa-trophy"></i><div><b>SATISFACTION CLIENTS</b><span>Notre plus grande réussite</span></div></div>
     </div>
   </div>
 </section>
@@ -1362,19 +2188,12 @@ window.__plTarget = 12;
         </div>
         <span class="pf-count">15</span>
       </button>
-      <button class="photo-filter-btn" data-filter="ces" style="background-image:url('images/image_015.jpg')">
-        <div class="pf-body">
-          <span class="pf-icon">🔩</span>
-          <span class="pf-label" data-i18n="pf3">CES</span>
-        </div>
-        <span class="pf-count">10</span>
-      </button>
       <button class="photo-filter-btn" data-filter="amenagement" style="background-image:url('images/image_012.jpg')">
         <div class="pf-body">
           <span class="pf-icon">🏢</span>
-          <span class="pf-label" data-i18n="pf4">Aménagement</span>
+          <span class="pf-label" data-i18n="pf4">Aménagement &amp; CES</span>
         </div>
-        <span class="pf-count">6</span>
+        <span class="pf-count">16</span>
       </button>
       <button class="photo-filter-btn" data-filter="electricite" style="background-image:url('images/image_032.jpg')">
         <div class="pf-body">
@@ -1382,6 +2201,13 @@ window.__plTarget = 12;
           <span class="pf-label" data-i18n="pf5">Électricité &amp; Instrumentation</span>
         </div>
         <span class="pf-count">1</span>
+      </button>
+      <button class="photo-filter-btn" data-filter="hse" style="background-image:url('images/image_026.jpg')">
+        <div class="pf-body">
+          <span class="pf-icon">🦺</span>
+          <span class="pf-label" data-i18n="pf6">Sécurité HSE</span>
+        </div>
+        <span class="pf-count">0</span>
       </button>
     </div>
     <div class="photo-gallery-grid" id="photoGallery">
@@ -1546,115 +2372,115 @@ window.__plTarget = 12;
           <div class="photo-title" data-i18n="pt22">Levage de la robe d'un réservoir sur son radier</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(23)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(23)">
         <img src="images/image_015.jpg" alt="Briefing HSE avec les équipes avant intervention – Total" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt23">Briefing HSE avec les équipes avant intervention – Total</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(24)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(24)">
         <img src="images/image_016.jpg" alt="Mise en place d'un groupe motopompe ABB sur site" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt24">Mise en place d'un groupe motopompe ABB sur site</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(25)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(25)">
         <img src="images/image_027.jpg" alt="Mise en service d'un groupe motopompe sur site" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt25">Mise en service d'un groupe motopompe sur site</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(26)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(26)">
         <img src="images/image_064.jpg" alt="Réseau de tuyauterie industrielle raccordé en paroi" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt26">Réseau de tuyauterie industrielle raccordé en paroi</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(27)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(27)">
         <img src="images/image_065.jpg" alt="Ligne de tuyauterie posée sur supports métalliques" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt27">Ligne de tuyauterie posée sur supports métalliques</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(28)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(28)">
         <img src="images/image_066.jpg" alt="Raccordement de tuyauterie sur charpente métallique" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt28">Raccordement de tuyauterie sur charpente métallique</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(29)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(29)">
         <img src="images/image_067.jpg" alt="Cheminement de tuyauterie sur structure industrielle" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt29">Cheminement de tuyauterie sur structure industrielle</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(30)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(30)">
         <img src="images/image_068.jpg" alt="Tuyauterie industrielle avec marquage technique" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt30">Tuyauterie industrielle avec marquage technique</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(31)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(31)">
         <img src="images/image_069.jpg" alt="Lignes de tuyauterie le long d'un réservoir de stockage" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt31">Lignes de tuyauterie le long d'un réservoir de stockage</div>
         </div>
       </div>
-      <div class="photo-thumb" data-category="ces" onclick="openPhotoLB(32)">
+      <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(32)">
         <img src="images/image_070.jpg" alt="Tuyauterie raccordée sur passerelle industrielle" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf3">CES</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt32">Tuyauterie raccordée sur passerelle industrielle</div>
         </div>
       </div>
       <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(33)">
         <img src="images/image_012.jpg" alt="Aménagement intérieur d'un espace de bureaux" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt33">Aménagement intérieur d'un espace de bureaux</div>
         </div>
       </div>
       <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(34)">
         <img src="images/image_059.jpg" alt="Finitions extérieures d'un module préfabriqué" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt34">Finitions extérieures d'un module préfabriqué</div>
         </div>
       </div>
       <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(35)">
         <img src="images/image_060.jpg" alt="Installation d'un escalier hélicoïdal métallique" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt35">Installation d'un escalier hélicoïdal métallique</div>
         </div>
       </div>
       <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(36)">
         <img src="images/image_061.jpg" alt="Module préfabriqué installé en extension d'un bâtiment" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt36">Module préfabriqué installé en extension d'un bâtiment</div>
         </div>
       </div>
       <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(37)">
         <img src="images/image_062.jpg" alt="Gros œuvre et maçonnerie d'un bâtiment en réhabilitation" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt37">Gros œuvre et maçonnerie d'un bâtiment en réhabilitation</div>
         </div>
       </div>
       <div class="photo-thumb" data-category="amenagement" onclick="openPhotoLB(38)">
         <img src="images/image_063.jpg" alt="Aménagement intérieur d'un couloir avec cloisons vitrées" loading="lazy">
         <div class="photo-overlay">
-          <div class="photo-tag" data-i18n="pf4">Aménagement</div>
+          <div class="photo-tag" data-i18n="pf4">Aménagement &amp; CES</div>
           <div class="photo-title" data-i18n="pt38">Aménagement intérieur d'un couloir avec cloisons vitrées</div>
         </div>
       </div>
@@ -1697,14 +2523,7 @@ window.__plTarget = 12;
     </div>
 
     <div class="partner-logo-card" title="ENAMARBRE">
-      <svg viewBox="0 0 140 70" xmlns="http://www.w3.org/2000/svg" width="140" height="70">
-  <circle cx="50" cy="35" r="30" fill="none" stroke="#1a5276" stroke-width="3"/>
-  <path d="M30,35 Q50,10 70,35 Q50,60 30,35Z" fill="#1a5276"/>
-  <text x="50" y="68" font-family="Arial,sans-serif" font-size="8" font-weight="bold" fill="#1a5276" text-anchor="middle">ENAMARBRE</text>
-  <text x="90" y="25" font-family="Arial,sans-serif" font-size="9" fill="#1a5276">المؤسسة</text>
-  <text x="90" y="38" font-family="Arial,sans-serif" font-size="9" fill="#1a5276">الوطنية</text>
-  <text x="90" y="51" font-family="Arial,sans-serif" font-size="9" fill="#1a5276">للرخام</text>
-</svg>
+      <img src="images/enamarbre.png" alt="Logo ENAMARBRE" style="max-width:130px;max-height:80px;width:auto;height:auto;object-fit:contain;">
     </div>
 
     <div class="partner-logo-card" title="GCB">
@@ -1837,7 +2656,8 @@ window.__plTarget = 12;
     <div class="footer-col">
       <h4 data-i18n="footer_nav">Navigation</h4>
       <a href="#about" data-i18n="nav_about">À Propos</a>
-      <a href="#services" data-i18n="nav_services">Services</a>
+      <a href="#services" data-i18n="nav_services">Secteurs d’intervention</a>
+      <a href="#why-us" data-i18n="nav_why">Pourquoi nous choisir ?</a>
       <a href="#partenaires" data-i18n="nav_partners">Partenaires</a>
       <a href="#contact" data-i18n="nav_contact">Contact</a>
     </div>
@@ -1858,7 +2678,7 @@ window.__plTarget = 12;
 // TRANSLATIONS
 const translations = {
   fr: {
-    nav_about:"À Propos", nav_services:"Services", nav_partners:"Partenaires", nav_contact:"Contact",
+    nav_about:"À Propos", nav_services:"Secteurs d’intervention", nav_why:"Pourquoi nous choisir ?", nav_partners:"Partenaires", nav_contact:"Contact",
     hero_tag:"Depuis 2008 · Qualification IV",
     hero_h1:"Construire avec <span>Rigueur</span><br>Livrer avec Confiance",
     hero_p:"Entreprise spécialisée dans les travaux de construction offrant des solutions fiables, conformes aux normes, avec un engagement constant en qualité, sécurité et respect des délais.",
@@ -1869,19 +2689,30 @@ const translations = {
     about_badge:"EURL M Construction · Oran, Algérie",
     about_p1:"Notre société ETB TCE MESSIKH MARC SAMI, créée en 2008, a réalisé de nombreux projets de construction et a atteint la qualification IV. L'évolution constante de l'entreprise nous a conduits à devenir <strong>EURL M Construction</strong> en 2023.",
     about_p2:"Depuis 2023, M Construction a tracé son chemin en réalisant plusieurs projets significatifs et en relevant de nouveaux défis, notamment dans le cadre de grands projets où la polyvalence est essentielle.",
+    engagements_title:"Nos <span>Engagements</span>",
     val1_h:"Satisfaction Partenaires", val1_p:"Qualité des prestations, maîtrise des coûts et respect des délais d'exécution.",
-    val2_h:"Excellence des Équipes", val2_p:"Maintien et amélioration continue des compétences, gages de performance et fiabilité.",
-    val3_h:"Agilité & Réactivité", val3_p:"Forte capacité d'adaptation pour répondre efficacement aux besoins de chaque projet.",
-    serv_label:"Nos Expertises", serv_h2:"Nos <span>Services</span>",
-    serv_p:"Une entreprise polyvalente couvrant l'ensemble des métiers de la construction industrielle et civile.",
-    s1_h:"Génie Civil", s1_p:"Fondations, massifs, dalles béton armé, ferraillage, coffrage et infrastructure industrielle.",
-    s2_h:"Charpente Métallique & Réservoirs de Stockage", s2_p:"Structures métalliques, hangars, passerelles industrielles et réservoirs de stockage (150 M³ à 650 M³).",
-    s3_h:"CES", s3_p:"Corps d'état secondaires : tuyauterie, raccordements, installations mécaniques, test et mise en service.",
-    s4_h:"Aménagement", s4_p:"Réhabilitation de bureaux, vestiaires et aménagements intérieurs et extérieurs.",
-    s5_h:"Travaux d'Électricité & Instrumentation", s5_p:"Travaux électriques, maintenance préventive postes HTA/BT, instrumentation et mise en service.",
+    val2_h:"Excellence des Équipes", val2_p:"Des équipes qualifiées et expérimentées, engagées pour garantir performance, sécurité et fiabilité.",
+    val3_h:"Agilité & Réactivité", val3_p:"Une forte capacité d'adaptation pour répondre efficacement aux exigences de chaque projet.",
+    val4_h:"Sécurité & Qualité", val4_p:"Une exigence constante en matière de qualité, de sécurité et de respect des normes sur chaque chantier.",
+    val5_h:"Engagement & Responsabilité", val5_p:"Une approche responsable intégrant la maîtrise des ressources, la protection de l'environnement et la pérennité des ouvrages.",
+    serv_label:"Nos Secteurs d’intervention", serv_h2:"Nos <span>Secteurs d’intervention</span>",
+    serv_p:"Des compétences complémentaires pour intervenir efficacement sur des projets industriels et civils, de la préparation à la réalisation.",
+    why_label:"Notre engagement", why_h2:"Pourquoi <span>nous choisir ?</span>",
+    why_intro:"<strong>Parce qu’un projet ne se résume pas à son exécution.</strong>Nous réunissons l’expertise technique, la capacité d’intervention et l’expérience terrain nécessaires pour accompagner nos clients sur des projets de différentes tailles et complexités.",
+    why1_h:"Un seul partenaire pour plusieurs métiers", why1_p:"De la préparation à la réalisation, nos compétences couvrent plusieurs domaines complémentaires, ce qui facilite la coordination et limite le recours à plusieurs intervenants.",
+    why2_h:"Une équipe capable de répondre aux exigences du terrain", why2_p:"Notre personnel, qualifié et expérimenté, nous permet de mobiliser les compétences adaptées à chaque mission et de faire face aux contraintes des projets industriels.",
+    why3_h:"Une organisation pensée pour avancer.", why3_p:"Nous privilégions une communication directe, une prise de décision rapide et une organisation flexible afin de maintenir le rythme des travaux et répondre aux imprévus.",
+    why4_h:"Une expérience qui se traduit par des résultats", why4_p:"Notre savoir-faire dans différents secteurs nous permet de comprendre les contraintes de nos clients et de proposer des solutions adaptées, réalistes et efficaces.",
+    why5_h:"Sécurité, qualité et satisfaction", why5_p:"La sécurité, la qualité d’exécution et la satisfaction de nos clients sont au cœur de nos priorités à chaque étape du projet.", why_more:"Lire plus", why_less:"Réduire",
+    why_stat1:"Projets réalisés", why_stat2:"Depuis", why_stat3:"Qualification", why_stat4:"Partenaires clés",
+    s1_h:"Génie Civil & Gros Œuvre", s1_p:"Réalisation de travaux de génie civil et de gros œuvre pour bâtiments résidentiels et industriels, incluant fondations, structures en béton, maçonnerie et construction de locaux et ouvrages.",
+    s2_h:"Charpente Métallique, Racks & Réservoirs", s2_p:"Conception, fabrication et montage de charpentes métalliques, hangars de différents types, racks industriels et réservoirs de stockage, adaptés aux exigences de chaque projet.",
+    s3_h:"Électricité & Instrumentation", s3_p:"Installation électrique, câblage, instrumentation, contrôle-commande et mise en service des équipements et installations industriels.",
+    s4_h:"Aménagement & Rénovation", s4_p:"Réalisation de travaux d'aménagement, de rénovation et de réhabilitation, incluant modification des cloisons, réorganisation des espaces, revêtements, peinture et travaux de finition.",
+    s5_h:"Maintenance Industrielle", s5_p:"Maintenance préventive et curative des équipements et installations industriels, diagnostic des défaillances, interventions techniques et remise en service pour garantir leur disponibilité et leur performance.",
     photos_label:"En Images", photos_h2:"Nos chantiers en <span>photos</span>",
     photos_intro:"Un aperçu classé par métier de nos interventions sur le terrain, pour les plus grands acteurs de l'industrie algérienne.",
-    pf1:"Génie Civil", pf2:"Charpente Métallique & Réservoirs", pf3:"CES", pf4:"Aménagement", pf5:"Électricité & Instrumentation",
+    pf1:"Génie Civil", pf2:"Charpente Métallique & Réservoirs", pf4:"Aménagement & CES", pf5:"Électricité & Instrumentation", pf6:"Sécurité HSE",
     pt0:"Relevé de niveaux et implantation par notre équipe topographe", pt1:"Ferraillage des poteaux en attente de coulage", pt2:"Réalisation d'une dalle circulaire en béton lissé", pt3:"Ferraillage des voiles en béton armé – immeuble R+", pt4:"Ferraillage du radier avec coffrage avant coulage", pt5:"Ferraillage du radier en zone d'espace confiné", pt6:"Ferraillage des poteaux d'un immeuble en construction", pt7:"Préparation du radier béton armé en zone confinée", pt8:"Chargement d'équipements industriels par grue auxiliaire", pt9:"Équipe en intervention sur plateau pour assemblage métallique", pt10:"Levage d'une structure métallique par grue mobile", pt11:"Soudure de précision sur éléments métalliques", pt12:"Assemblage d'une plateforme métallique sécurisée", pt13:"Intervention sécurisée en hauteur avec harnais", pt14:"Levage d'une poutre métallique par grue auxiliaire", pt15:"Inspection d'un réservoir sous échafaudage par le superviseur HSE", pt16:"Vue d'ensemble du parc de réservoirs de stockage", pt17:"Équipe en nacelle élévatrice pour travaux en hauteur sur réservoir", pt18:"Levage des viroles métalliques pour la base d'un réservoir", pt19:"Assemblage des tôles de la robe d'un réservoir", pt20:"Soudure des tôles lors du levage par grue", pt21:"Radier en béton armé prêt pour le montage du réservoir", pt22:"Levage de la robe d'un réservoir sur son radier", pt23:"Briefing HSE avec les équipes avant intervention – Total", pt24:"Mise en place d'un groupe motopompe ABB sur site", pt25:"Mise en service d'un groupe motopompe sur site", pt26:"Réseau de tuyauterie industrielle raccordé en paroi", pt27:"Ligne de tuyauterie posée sur supports métalliques", pt28:"Raccordement de tuyauterie sur charpente métallique", pt29:"Cheminement de tuyauterie sur structure industrielle", pt30:"Tuyauterie industrielle avec marquage technique", pt31:"Lignes de tuyauterie le long d'un réservoir de stockage", pt32:"Tuyauterie raccordée sur passerelle industrielle", pt33:"Aménagement intérieur d'un espace de bureaux", pt34:"Finitions extérieures d'un module préfabriqué", pt35:"Installation d'un escalier hélicoïdal métallique", pt36:"Module préfabriqué installé en extension d'un bâtiment", pt37:"Gros œuvre et maçonnerie d'un bâtiment en réhabilitation", pt38:"Aménagement intérieur d'un couloir avec cloisons vitrées", pt39:"Installation électrique et instrumentation industrielle",
     part_h:"Nos Partenaires", part_p:"Ils nous font confiance pour leurs projets les plus exigeants",
     cont_label:"Travaillons Ensemble", cont_h:"Nous <span>Contacter</span>", cont_info_h:"Informations de Contact",
@@ -1898,7 +2729,7 @@ const translations = {
     footer_copy:"© 2025 EURL M Construction – Tous droits réservés · Oran, Algérie · <em>Construire avec rigueur, Livrer avec confiance</em>"
   },
   en: {
-    nav_about:"About", nav_services:"Services", nav_partners:"Partners", nav_contact:"Contact",
+    nav_about:"About", nav_services:"Areas of Intervention", nav_why:"Why Choose Us?", nav_partners:"Partners", nav_contact:"Contact",
     hero_tag:"Since 2008 · Level IV Qualification",
     hero_h1:"Building with <span>Precision</span><br>Delivering with Confidence",
     hero_p:"A construction company offering reliable, standards-compliant solutions with a constant commitment to quality, safety, and deadlines.",
@@ -1909,19 +2740,30 @@ const translations = {
     about_badge:"EURL M Construction · Oran, Algeria",
     about_p1:"Our company ETB TCE MESSIKH MARC SAMI, founded in 2008, has completed numerous construction projects and achieved Level IV qualification. Our constant growth led us to become <strong>EURL M Construction</strong> in 2023.",
     about_p2:"Since 2023, M Construction has forged its path by completing several significant projects and taking on new challenges, particularly in large-scale projects requiring versatility.",
+    engagements_title:"Our <span>Commitments</span>",
     val1_h:"Partner Satisfaction", val1_p:"Quality of services, cost control and compliance with execution deadlines.",
-    val2_h:"Team Excellence", val2_p:"Continuous maintenance and improvement of skills, guaranteeing performance and reliability.",
-    val3_h:"Agility & Responsiveness", val3_p:"Strong adaptability to efficiently respond to the needs and challenges of each project.",
-    serv_label:"Our Expertise", serv_h2:"Our <span>Services</span>",
-    serv_p:"A versatile company covering all areas of industrial and civil construction.",
-    s1_h:"Civil Engineering", s1_p:"Foundations, concrete slabs, reinforcement, formwork and industrial infrastructure.",
-    s2_h:"Steel Structures & Storage Tanks", s2_p:"Metal structures, warehouses, industrial walkways and storage tanks (150 m³ to 650 m³).",
-    s3_h:"CES", s3_p:"Secondary trades: piping, connections, mechanical installations, testing and commissioning.",
-    s4_h:"Fit-Out", s4_p:"Office rehabilitation, changing rooms and interior/exterior fittings.",
-    s5_h:"Electrical & Instrumentation Works", s5_p:"Electrical works, preventive maintenance of HTA/LV substations, instrumentation and commissioning.",
+    val2_h:"Team Excellence", val2_p:"Skilled and experienced teams, committed to ensuring performance, safety and reliability.",
+    val3_h:"Agility & Responsiveness", val3_p:"Strong adaptability to efficiently respond to the requirements of each project.",
+    val4_h:"Safety & Quality", val4_p:"A constant commitment to quality, safety and compliance with standards on every site.",
+    val5_h:"Commitment & Responsibility", val5_p:"A responsible approach combining resource management, environmental protection and the durability of our structures.",
+    serv_label:"Our Areas of Intervention", serv_h2:"Our <span>Areas of Intervention</span>",
+    serv_p:"Complementary capabilities enabling us to deliver effectively across industrial and civil projects, from preparation through completion.",
+    why_label:"Our Commitment", why_h2:"Why <span>Choose Us?</span>",
+    why_intro:"<strong>Because a project is about more than execution.</strong>We bring together the technical expertise, operational capacity and field experience needed to support our clients on projects of different sizes and levels of complexity.",
+    why1_h:"One partner for multiple disciplines", why1_p:"From preparation through completion, our skills cover several complementary areas, making coordination easier and reducing the need for multiple contractors.",
+    why2_h:"A team equipped for field requirements", why2_p:"Our qualified and experienced personnel enable us to mobilize the right skills for each assignment and address the constraints of industrial projects.",
+    why3_h:"An organization designed to move projects forward", why3_p:"We prioritize direct communication, fast decision-making and flexible organization to maintain work progress and respond effectively to unforeseen circumstances.",
+    why4_h:"Experience that translates into results", why4_p:"Our know-how across different sectors allows us to understand our clients’ constraints and propose solutions that are appropriate, realistic and effective.",
+    why5_h:"Safety, quality and client satisfaction", why5_p:"Safety, quality of execution and client satisfaction are at the heart of our priorities at every stage of the project.", why_more:"Read more", why_less:"Read less",
+    why_stat1:"Projects completed", why_stat2:"Since", why_stat3:"Qualification", why_stat4:"Key partners",
+    s1_h:"Civil Engineering & Structural Works", s1_p:"Civil engineering and structural works for residential and industrial buildings, including foundations, concrete structures, masonry and construction of facilities and structures.",
+    s2_h:"Steel Structures, Racks & Storage Tanks", s2_p:"Design, fabrication and erection of steel structures, warehouses of various types, industrial racking and storage tanks, tailored to each project's requirements.",
+    s3_h:"Electrical & Instrumentation", s3_p:"Electrical installation, cabling, instrumentation, control systems and commissioning of industrial equipment and facilities.",
+    s4_h:"Fit-Out & Renovation", s4_p:"Fit-out, renovation and rehabilitation works, including partition modifications, space reorganization, coatings, painting and finishing works.",
+    s5_h:"Industrial Maintenance", s5_p:"Preventive and corrective maintenance of industrial equipment and facilities, fault diagnosis, technical interventions and return to service to ensure availability and performance.",
     photos_label:"In Pictures", photos_h2:"Our projects in <span>pictures</span>",
     photos_intro:"A trade-by-trade overview of our fieldwork for Algeria's leading industrial players.",
-    pf1:"Civil Engineering", pf2:"Steel Structures & Tanks", pf3:"CES", pf4:"Fit-Out", pf5:"Electrical & Instrumentation",
+    pf1:"Civil Engineering", pf2:"Steel Structures & Tanks", pf4:"Fit-Out & CES", pf5:"Electrical & Instrumentation", pf6:"HSE Safety",
     pt0:"Level survey and site layout by our surveying team", pt1:"Rebar assembly for columns awaiting concrete pour", pt2:"Construction of a circular smoothed concrete slab", pt3:"Reinforced concrete wall rebar – multi-storey building", pt4:"Raft foundation rebar with formwork before pouring", pt5:"Raft foundation rebar in a confined area", pt6:"Column rebar for a building under construction", pt7:"Preparation of reinforced concrete raft foundation in a confined area", pt8:"Loading industrial equipment with an auxiliary crane", pt9:"Team working on site for steel structure assembly", pt10:"Lifting a steel structure with a mobile crane", pt11:"Precision welding on steel components", pt12:"Assembly of a secured steel platform", pt13:"Secured work at height with a safety harness", pt14:"Lifting a steel beam with an auxiliary crane", pt15:"Tank inspection under scaffolding by the HSE supervisor", pt16:"Overview of the storage tank farm", pt17:"Team on an aerial platform for tank work at height", pt18:"Lifting steel shell plates for a tank base", pt19:"Assembly of a tank's shell plates", pt20:"Welding shell plates during crane lifting", pt21:"Reinforced concrete raft ready for tank erection", pt22:"Lifting a tank shell onto its raft foundation", pt23:"HSE briefing with teams before intervention – Total", pt24:"Installation of an ABB pump unit on site", pt25:"Commissioning of a pump unit on site", pt26:"Industrial piping network connected to a wall", pt27:"Piping line laid on steel supports", pt28:"Piping connection on a steel structure", pt29:"Piping routing on an industrial structure", pt30:"Industrial piping with technical markings", pt31:"Piping lines along a storage tank", pt32:"Piping connected on an industrial walkway", pt33:"Interior fit-out of an office space", pt34:"Exterior finishing of a prefabricated module", pt35:"Installation of a metal spiral staircase", pt36:"Prefabricated module installed as a building extension", pt37:"Structural work and masonry on a building under renovation", pt38:"Interior fit-out of a corridor with glazed partitions", pt39:"Electrical installation and industrial instrumentation",
     part_h:"Our Partners", part_p:"They trust us with their most demanding projects",
     cont_label:"Let's Work Together", cont_h:"<span>Contact</span> Us", cont_info_h:"Contact Information",
@@ -1938,7 +2780,7 @@ const translations = {
     footer_copy:"© 2025 EURL M Construction – All rights reserved · Oran, Algeria · <em>Building with Precision, Delivering with Confidence</em>"
   },
   ar: {
-    nav_about:"من نحن", nav_services:"خدماتنا", nav_partners:"شركاؤنا", nav_contact:"اتصل بنا",
+    nav_about:"من نحن", nav_services:"مجالات تدخلنا", nav_why:"لماذا تختارنا؟", nav_partners:"شركاؤنا", nav_contact:"اتصل بنا",
     hero_tag:"منذ 2008 · تأهيل المستوى الرابع",
     hero_h1:"نبني بـ<span>صرامة</span><br>ونسلّم بثقة",
     hero_p:"شركة متخصصة في أعمال البناء تقدم حلولاً موثوقة ومطابقة للمعايير مع التزام دائم بالجودة والسلامة واحترام الآجال.",
@@ -1949,19 +2791,30 @@ const translations = {
     about_badge:"EURL M Construction · وهران، الجزائر",
     about_p1:"شركتنا ETB TCE MESSIKH MARC SAMI، المؤسسة عام 2008، أنجزت العديد من مشاريع البناء وبلغت التأهيل من المستوى الرابع. وقد أدى تطورنا المستمر إلى التحول إلى <strong>EURL M Construction</strong> في 2023.",
     about_p2:"منذ تأسيسها عام 2023، شقت M Construction طريقها بإنجاز مشاريع هامة ومواجهة تحديات جديدة، لا سيما في إطار المشاريع الكبرى التي تستلزم التعددية.",
+    engagements_title:"التزاماتنا",
     val1_h:"رضا الشركاء", val1_p:"جودة الخدمات والتحكم في التكاليف واحترام آجال التنفيذ.",
-    val2_h:"تميز الفرق", val2_p:"الحفاظ على كفاءات الفرق وتطويرها المستمر ضمانًا للأداء والموثوقية.",
-    val3_h:"المرونة والاستجابة", val3_p:"قدرة عالية على التكيف للاستجابة بفعالية لاحتياجات كل مشروع.",
-    serv_label:"خبراتنا", serv_h2:"<span>خدماتنا</span>",
-    serv_p:"شركة متعددة التخصصات تغطي جميع مجالات البناء الصناعي والمدني.",
-    s1_h:"الهندسة المدنية", s1_p:"الأساسات والبلاطات الخرسانية المسلحة والتسليح والقوالب والبنية التحتية الصناعية.",
-    s2_h:"الهياكل المعدنية وخزانات التخزين", s2_p:"الهياكل المعدنية والمستودعات والممرات الصناعية وخزانات التخزين (150 م³ إلى 650 م³).",
-    s3_h:"CES", s3_p:"الأعمال الثانوية: الأنابيب والتوصيلات والتركيبات الميكانيكية والاختبار والتشغيل.",
-    s4_h:"التهيئة", s4_p:"إعادة تأهيل المكاتب وغرف تبديل الملابس والتهيئة الداخلية والخارجية.",
-    s5_h:"أعمال الكهرباء والأدوات", s5_p:"الأعمال الكهربائية والصيانة الوقائية لمحطات الجهد العالي/المنخفض والأدوات والتشغيل.",
+    val2_h:"تميز الفرق", val2_p:"فرق مؤهلة وذات خبرة، ملتزمة بضمان الأداء والسلامة والموثوقية.",
+    val3_h:"المرونة والاستجابة", val3_p:"قدرة عالية على التكيف للاستجابة بفعالية لمتطلبات كل مشروع.",
+    val4_h:"السلامة والجودة", val4_p:"التزام دائم بالجودة والسلامة واحترام المعايير في كل ورشة.",
+    val5_h:"الالتزام والمسؤولية", val5_p:"نهج مسؤول يجمع بين ترشيد الموارد وحماية البيئة واستدامة المنشآت.",
+    serv_label:"مجالات تدخلنا", serv_h2:"<span>مجالات تدخلنا</span>",
+    serv_p:"كفاءات متكاملة تتيح لنا التدخل بفعالية في المشاريع الصناعية والمدنية، من مرحلة التحضير إلى الإنجاز.",
+    why_label:"التزامنا", why_h2:"لماذا <span>تختارنا؟</span>",
+    why_intro:"<strong>لأن المشروع لا يقتصر على تنفيذه فقط.</strong>نجمع بين الخبرة التقنية، والقدرة على التدخل، والخبرة الميدانية اللازمة لمرافقة عملائنا في مشاريع مختلفة من حيث الحجم ودرجة التعقيد.",
+    why1_h:"شريك واحد لعدة تخصصات", why1_p:"من مرحلة التحضير إلى الإنجاز، تغطي كفاءاتنا عدة مجالات متكاملة، مما يسهل التنسيق ويحد من الحاجة إلى الاستعانة بعدة متدخلين.",
+    why2_h:"فريق قادر على تلبية متطلبات الميدان", why2_p:"يتيح لنا طاقمنا المؤهل وذو الخبرة حشد الكفاءات المناسبة لكل مهمة والتعامل مع متطلبات وتحديات المشاريع الصناعية.",
+    why3_h:"تنظيم مصمم لضمان تقدم العمل", why3_p:"نعتمد على تواصل مباشر وسرعة في اتخاذ القرار وتنظيم مرن للحفاظ على وتيرة الأشغال والاستجابة بفعالية للظروف غير المتوقعة.",
+    why4_h:"خبرة تنعكس على النتائج", why4_p:"تتيح لنا خبرتنا في قطاعات مختلفة فهم متطلبات عملائنا وتقديم حلول ملائمة وواقعية وفعالة.",
+    why5_h:"السلامة والجودة ورضا العملاء", why5_p:"تُعد السلامة وجودة التنفيذ ورضا عملائنا في صميم أولوياتنا في كل مرحلة من مراحل المشروع.", why_more:"اقرأ المزيد", why_less:"إخفاء النص",
+    why_stat1:"مشاريع منجزة", why_stat2:"منذ", why_stat3:"التأهيل", why_stat4:"شركاء رئيسيون",
+    s1_h:"الهندسة المدنية والأعمال الإنشائية", s1_p:"تنفيذ أعمال الهندسة المدنية والأعمال الإنشائية للمباني السكنية والصناعية، بما في ذلك الأساسات والهياكل الخرسانية والبناء وإنشاء المحلات والمنشآت.",
+    s2_h:"الهياكل المعدنية والرفوف وخزانات التخزين", s2_p:"تصميم وتصنيع وتركيب الهياكل المعدنية والمستودعات بمختلف أنواعها والرفوف الصناعية وخزانات التخزين، بما يتناسب مع متطلبات كل مشروع.",
+    s3_h:"الكهرباء والأدوات", s3_p:"تركيب الكهرباء والأسلاك والأدوات وأنظمة التحكم وتشغيل المعدات والمنشآت الصناعية.",
+    s4_h:"التهيئة والتجديد", s4_p:"تنفيذ أعمال التهيئة والتجديد وإعادة التأهيل، بما في ذلك تعديل الحواجز وإعادة تنظيم المساحات والتغطيات والدهان وأعمال التشطيب.",
+    s5_h:"الصيانة الصناعية", s5_p:"الصيانة الوقائية والعلاجية للمعدات والمنشآت الصناعية، وتشخيص الأعطال، والتدخلات الفنية وإعادة التشغيل لضمان توافرها وأدائها.",
     photos_label:"بالصور", photos_h2:"مشاريعنا <span>بالصور</span>",
     photos_intro:"لمحة مصنفة حسب التخصص عن تدخلاتنا الميدانية لفائدة أكبر الفاعلين في الصناعة الجزائرية.",
-    pf1:"الهندسة المدنية", pf2:"الهياكل المعدنية والخزانات", pf3:"CES", pf4:"التهيئة", pf5:"الكهرباء والأدوات",
+    pf1:"الهندسة المدنية", pf2:"الهياكل المعدنية والخزانات", pf4:"التهيئة و CES", pf5:"الكهرباء والأدوات", pf6:"السلامة (HSE)",
     pt0:"مسح المستويات وتحديد المواقع من طرف فريق المساحة لدينا", pt1:"تسليح الأعمدة في انتظار الصب", pt2:"إنجاز بلاطة دائرية من الخرسانة الملساء", pt3:"تسليح الجدران من الخرسانة المسلحة – عمارة متعددة الطوابق", pt4:"تسليح الرادييه مع القالب قبل الصب", pt5:"تسليح الرادييه في منطقة ضيقة", pt6:"تسليح أعمدة عمارة قيد الإنجاز", pt7:"تحضير رادييه من الخرسانة المسلحة في منطقة ضيقة", pt8:"تحميل معدات صناعية بواسطة رافعة مساعدة", pt9:"فريق يتدخل في الموقع لتجميع الهيكل المعدني", pt10:"رفع هيكل معدني بواسطة رافعة متنقلة", pt11:"لحام دقيق على عناصر معدنية", pt12:"تجميع منصة معدنية مؤمّنة", pt13:"تدخل آمن في العلو بواسطة حزام أمان", pt14:"رفع عارضة معدنية بواسطة رافعة مساعدة", pt15:"تفتيش خزان تحت السقالة من طرف مشرف السلامة", pt16:"نظرة عامة على حقل خزانات التخزين", pt17:"فريق على منصة رفع للعمل في العلو على خزان", pt18:"رفع الألواح المعدنية لقاعدة خزان", pt19:"تجميع ألواح جسم الخزان", pt20:"لحام الألواح أثناء الرفع بالرافعة", pt21:"رادييه من الخرسانة المسلحة جاهز لتركيب الخزان", pt22:"رفع جسم الخزان فوق رادييه", pt23:"إحاطة سلامة مع الفرق قبل التدخل – توتال", pt24:"تركيب مجموعة مضخة ABB في الموقع", pt25:"تشغيل مجموعة مضخة في الموقع", pt26:"شبكة أنابيب صناعية موصولة على الجدار", pt27:"خط أنابيب موضوع على دعامات معدنية", pt28:"توصيل الأنابيب على هيكل معدني", pt29:"مسار أنابيب على هيكل صناعي", pt30:"أنابيب صناعية مع علامات تقنية", pt31:"خطوط أنابيب على طول خزان تخزين", pt32:"أنابيب موصولة على ممر صناعي", pt33:"تهيئة داخلية لمساحة مكاتب", pt34:"تشطيبات خارجية لوحدة مسبقة الصنع", pt35:"تركيب سلم حلزوني معدني", pt36:"وحدة مسبقة الصنع مركبة كامتداد لمبنى", pt37:"أعمال البناء والبناء بالحجارة لمبنى قيد إعادة التأهيل", pt38:"تهيئة داخلية لممر بحواجز زجاجية", pt39:"تركيب كهربائي وأدوات صناعية",
     part_h:"شركاؤنا", part_p:"يثقون بنا في أكثر مشاريعهم تطلباً",
     cont_label:"لنعمل معاً", cont_h:"<span>اتصل</span> بنا", cont_info_h:"معلومات التواصل",
@@ -1981,6 +2834,28 @@ const translations = {
 
 let currentLang = 'fr';
 
+function toggleWhy(button) {
+  const card = button.closest('.why-ref-card');
+  const expanded = card.classList.toggle('is-expanded');
+  button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+  const icon = button.querySelector('.why-more-icon');
+  const label = button.querySelector('.why-more-label');
+  if (icon) icon.textContent = expanded ? '−' : '+';
+  if (label) label.innerHTML = translations[currentLang][expanded ? 'why_less' : 'why_more'];
+}
+
+function refreshWhyButtons() {
+  document.querySelectorAll('.why-ref-more').forEach(button => {
+    const card = button.closest('.why-ref-card');
+    const expanded = card && card.classList.contains('is-expanded');
+    button.setAttribute('aria-expanded', expanded ? 'true' : 'false');
+    const icon = button.querySelector('.why-more-icon');
+    const label = button.querySelector('.why-more-label');
+    if (icon) icon.textContent = expanded ? '−' : '+';
+    if (label) label.innerHTML = translations[currentLang][expanded ? 'why_less' : 'why_more'];
+  });
+}
+
 function setLang(lang) {
   currentLang = lang;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.textContent === lang.toUpperCase()));
@@ -1993,6 +2868,7 @@ function setLang(lang) {
   });
   // RTL for Arabic
   document.body.dir = lang === 'ar' ? 'rtl' : 'ltr';
+  refreshWhyButtons();
 }
 
 function toggleMenu() {
@@ -2244,6 +3120,20 @@ document.addEventListener('keydown', (e) => {
     window.addEventListener('load', finishLoading);
     setTimeout(finishLoading, 4500);
   }
+})();
+</script>
+<script>
+/* ===== WHY US REVEAL ANIMATION ===== */
+(function(){
+  const cards=document.querySelectorAll('.why-us-card');
+  if(!cards.length) return;
+  if(window.matchMedia('(prefers-reduced-motion: reduce)').matches){ cards.forEach(c=>c.classList.add('is-visible')); return; }
+  const observer=new IntersectionObserver((entries,obs)=>{
+    entries.forEach(entry=>{
+      if(entry.isIntersecting){ entry.target.classList.add('is-visible'); obs.unobserve(entry.target); }
+    });
+  },{threshold:.16,rootMargin:'0px 0px -60px 0px'});
+  cards.forEach(card=>observer.observe(card));
 })();
 </script>
 </body>
