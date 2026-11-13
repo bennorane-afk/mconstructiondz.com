@@ -105,7 +105,7 @@
     box-shadow: 0 2px 20px rgba(0,0,0,0.3);
   }
   .nav-logo { display: flex; align-items: center; gap: 12px; }
-  .nav-logo img { height: 44px; border-radius: 6px; background: white; padding: 3px; }
+  .nav-logo img { height: 48px; width: auto; border-radius: 6px; background: white; padding: 3px 6px; object-fit: contain; }
   .nav-links { display: flex; gap: 32px; align-items: center; }
   .nav-links a {
     color: rgba(255,255,255,0.85);
@@ -1118,11 +1118,12 @@
     100% { stroke-dashoffset: -408; }
   }
   .pl-logo-img {
-    width: 88px;
-    height: 88px;
+    width: 108px;
+    height: auto;
     border-radius: 12px;
     background: #fff;
-    padding: 8px;
+    padding: 8px 6px;
+    object-fit: contain;
     box-shadow: 0 8px 30px rgba(0,0,0,0.4), 0 0 0 1px rgba(255,255,255,0.08);
     animation: plLogoPulse 2.6s ease-in-out infinite;
   }
@@ -1802,7 +1803,7 @@
         <circle class="pl-ring-bg" cx="70" cy="70" r="65"></circle>
         <circle class="pl-ring-fg" cx="70" cy="70" r="65"></circle>
       </svg>
-      <img class="pl-logo-img" id="plLogoImg" src="images/image_002.jpg" alt="M Construction">
+      <img class="pl-logo-img" id="plLogoImg" src="images/logo.jpg" alt="M Construction">
     </div>
     <div class="pl-brand">M <span>CONSTRUCTION</span></div>
     <div class="pl-tagline">Tous Corps D'État</div>
@@ -1837,7 +1838,7 @@ window.__plTarget = 12;
 <!-- NAV -->
 <nav id="navbar">
   <div class="nav-logo">
-    <img src="images/image_003.jpg" alt="M Construction Logo">
+    <img src="images/logo.jpg" alt="M Construction Logo">
   </div>
   <div class="nav-links" id="navLinks">
     <a href="#about" data-i18n="nav_about">À Propos</a>
